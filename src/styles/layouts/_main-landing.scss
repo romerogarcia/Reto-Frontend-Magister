@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Mulish:wght@500&display=swap');
 *{
     font-family: 'Mulish', sans-serif;
-    background-color: $background-color;
+    //background-color: $background-color;
 }
 .landing{
     color: $color-text;
@@ -10,7 +10,7 @@
 .menu-burguer{
     display: flex;
     justify-content: flex-end; 
-    margin-top: 30px; 
+    padding-top: 40px;
     margin-right: 50px;
     cursor: pointer;
 }
