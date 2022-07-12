@@ -41,7 +41,7 @@ function Modality() {
           </div>
 
           <section>
-            <img alt="imagen persona" className="person-image" src={image} />
+            <img alt="imagen persona" className="section1__image" src={image} />
           </section>
         </section>
 

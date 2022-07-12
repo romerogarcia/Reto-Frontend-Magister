@@ -14,6 +14,7 @@
     &__elements{
         display: flex; 
         align-items: center;
+        margin-top: 50px;
         margin-bottom: 50px;
         &__title{
             color: $color-text;
@@ -42,7 +43,11 @@
         }
     }
     }
-    
+    &__image{
+        margin-top: 50px;
+        width: 460px;
+        height: 400px;
+    }
 }
 
 .section2{

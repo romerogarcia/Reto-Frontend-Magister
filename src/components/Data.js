@@ -1,4 +1,4 @@
-import image from '../images/image3.png';
+import image from '../images/image4.png';
 import { Link } from 'react-router-dom';
 function Data() {
   const handleClickNext = () => {};
@@ -97,7 +97,7 @@ function Data() {
 
           {/*RUTA AQUI */}
           <button className="section2__button" onClick={handleClickNext}>
-            <Link className="section__button__link" to="/">
+            <Link className="section__button__link" to="/address">
               Siguiente
             </Link>
           </button>

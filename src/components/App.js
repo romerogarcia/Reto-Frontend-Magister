@@ -5,6 +5,9 @@ import Specialized from './Specialized';
 import Modality from './Modality';
 import Rates from './Rates';
 import Data from './Data';
+import Address from './Address';
+import Payment from './Payment';
+import Final from './Final';
 import NotFound from './Notfound';
 
 function App() {
@@ -16,6 +19,8 @@ function App() {
         <Route path="/Modality" element={<Modality />} />
         <Route path="/Rates" element={<Rates />} />
         <Route path="/Data" element={<Data />} />
+        <Route path="/Address" element={<Address />} />
+        <Route path="/Payment" element={<Payment />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </>
