@@ -19,7 +19,7 @@ function MainLanding() {
           </p>
 
           <button className="section__button" onClick={handleClickStart}>
-            <Link className="section__button__link" to="/card">
+            <Link className="section__button__link" to="/specialized">
               Comenzar
             </Link>
           </button>

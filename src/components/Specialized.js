@@ -1,5 +1,7 @@
 import image from '../images/image1.png';
+import { Link } from 'react-router-dom';
 function Specialized() {
+  const handleClickNext = () => {};
   return (
     <>
       <main>
@@ -55,7 +57,7 @@ function Specialized() {
               >
                 Rama
                 <p>(Selecciona una opción)</p>
-                <select className="section2__container-selects__label__options">
+                <select className="section2__container-selects__label__choices">
                   <option disabled selected>
                     Ej: Maestros - Audición y lenguajes
                   </option>
@@ -72,7 +74,7 @@ function Specialized() {
                 htmlFor="Status"
               >
                 Provincia <p>(Selecciona una opción)</p>
-                <select className="section2__container-selects__label__options">
+                <select className="section2__container-selects__label__choices">
                   <option disabled selected>
                     Ej: Madrid
                   </option>
@@ -95,7 +97,7 @@ function Specialized() {
             <div className="section2__container-b">
               <button className="section2__container-b__button">No</button>
               <button className="section2__container-b__button">Si</button>
-              <button className="section2__container-b__button-big">
+              <button className="section2__container-b__button-b">
                 Sí, después de 2017
               </button>
             </div>
@@ -113,7 +115,11 @@ function Specialized() {
               </button>
             </div>
 
-            <button className="section2__button">Siguiente</button>
+            <button className="section2__button" onClick={handleClickNext}>
+              <Link className="section__button__link" to="/modality">
+                Siguiente
+              </Link>
+            </button>
           </div>
         </section>
       </main>
