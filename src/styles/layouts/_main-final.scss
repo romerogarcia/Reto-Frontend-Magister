@@ -1,0 +1,30 @@
+.section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding-top: 100px;
+    &__elements{
+       
+        padding-bottom: 60px;
+        display: flex; 
+ align-items: center;
+        &__title{
+            padding-top: 36px;
+            padding-left: 25px;
+            font-size: 35px;
+        }
+    }
+    &__subtitle{
+        font-size: 45px;
+        padding-bottom: 50px;
+        font-weight:bold;
+    }
+    &__text{
+        font-size: 25px;
+        width: 740px;
+        height: 150px;
+        text-align:center;
+        margin-bottom: 100px;
+}
+}

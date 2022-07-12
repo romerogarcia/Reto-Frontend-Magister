@@ -105,7 +105,11 @@ function Modality() {
               Siguiente
             </Link>
           </button>
-          <p className="section2__back">Volver atrás</p>
+          <p className="section__back">
+            <Link className="section__back" to="/specialized">
+              Volver atrás
+            </Link>
+          </p>
         </section>
       </main>
     </>

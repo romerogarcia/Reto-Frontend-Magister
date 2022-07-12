@@ -101,7 +101,11 @@ function Data() {
               Siguiente
             </Link>
           </button>
-          <p className="section2__back">Volver atrás</p>
+          <p className="section__back">
+            <Link className="section__back" to="/rates">
+              Volver atrás
+            </Link>
+          </p>
         </section>
       </main>
     </>
