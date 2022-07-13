@@ -25,12 +25,12 @@
     }
 
     &__container-task{
-      padding-left: 135px;
+     
         &__newcolor{
                 display: flex; 
                 align-items: center;
                 margin-bottom: 30px;  
-                padding-right: 50px;
+                
         }
 
         &__list{
@@ -52,9 +52,6 @@
 
 .section2{
     float: right;
-    width: 60vw;
-    padding-left: 50px;
-    padding-right: 50px;
    
     &__menu-burguer{
         display: flex;
@@ -66,9 +63,6 @@
 
     &__title{
         color: $color-light;
-        padding-top: 50px;
-        padding-left: 40px;
-        padding-bottom: 80px;
         display: flex;
        justify-content: center;
        text-align: center;
@@ -88,13 +82,11 @@
 
     &__container-selects{
         display: flex;
-        //justify-content: center;
         justify-content: space-between;
         &__label{
             color: $color-light;
-            //font-size: 20px;
             &__text{
-                //color: $color-light; 
+              
                 font-size: 20px;
                 font-weight: bold;
             }
@@ -137,13 +129,16 @@
      
     &__button{
             background-color: $color-button;
+            display: flex;
+        justify-content: center;
+        align-items: center;
             width: 220px;
             height: 40px;
             border-style: none;
             border-radius: 1em;
             margin-top: 100px;
             margin-bottom: 20px;
-            margin-left: 280px;
+            //margin-left: 280px;
             box-shadow: 3px 3px rgba(0, 0, 0, 0.151);
             color: $color-text;
             font-size: 16px;
@@ -157,10 +152,6 @@
             
     }
     &__back{
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin-left: 50px;
         color: $color-button;
         font-size: 18px;
         font-weight: bold;

@@ -24,12 +24,12 @@
     }
 
     &__container-task{
-      padding-left: 135px;
+      
         &__newcolor{
                 display: flex; 
                 align-items: center;
                 margin-bottom: 30px;  
-                padding-right: 50px;
+                
         }
 
         &__list{
@@ -37,41 +37,41 @@
         align-items: center;
         margin-bottom: 50px;
         color: $color-task;
-        &__i{
-            padding-right: 10px;
-        }
     }
     }
     
 }
 
+i {margin-right:20px}
+
 .section2{
     float: right;
-    width: 60vw;
-    padding-left: 50px;
-    padding-right: 50px;
-    &__menu-burguer{
+   width: 60vw;
+   height: auto;
+    &__menu{
         display: flex;
         justify-content: flex-end; 
         padding-top: 40px;
-        margin-right: 50px;
+        color: $color-grey;
         cursor: pointer;
     }
 
     &__title{
         color: $color-light;
-        padding-top: 50px;
+        margin-top: 50px;
+        margin-right: 40px;
+        margin-bottom: 80px;
         display: flex;
         justify-content: center;
         text-align: center;
         font-size: 35px;
-        padding-bottom: 80px;
+        
         
     }
 
     &__container-selects{
         display: flex;
-        //justify-content: center;
+        
         justify-content: space-between;
         &__label{
             color: $color-light;
@@ -159,6 +159,9 @@
     }
 
     &__button{
+        display: flex;
+        justify-content: center;
+        align-items: center;
         background-color: $color-button;
         width: 200px;
         height: 40px;
@@ -168,7 +171,6 @@
         box-shadow: 3px 3px rgba(0, 0, 0, 0.151);
         color: $color-text;
         font-size: 16px;
-        margin-left: 280px;
         &__link{
             text-decoration: none;
             color: $color-text;
@@ -178,3 +180,4 @@
         
     }
 }
+

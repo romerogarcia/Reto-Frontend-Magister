@@ -13,7 +13,7 @@ function Address() {
 
           <div className="section1-address__container-task">
             <p className="section1-address__container-task__list">
-              <i class="fa-regular fa-circle fa-lg"></i>¿En qué te quieres
+              <i class="fa-solid fa-circle fa-lg"></i>¿En qué te quieres
               especializar?
             </p>
 
@@ -32,7 +32,7 @@ function Address() {
 
             <div className="section1-address__container-task__newcolor">
               <p className="section1-address__container-task__newcolor">
-                <i className="fa-solid fa-circle fa-lg"></i>Dirección
+                <i className="fa-regular fa-circle fa-lg  "></i>Dirección
               </p>
             </div>
             <p className="section1-address__container-task__list">
@@ -50,6 +50,9 @@ function Address() {
         </section>
 
         <section className="section2">
+          <nav className="section2__menu">
+            <i className=" fa-solid fa-bars fa-4x  "></i>
+          </nav>
           <h2 className="section2__title">Tu dirección</h2>
           <form>
             <label className="section2__label" htmlFor="Status">

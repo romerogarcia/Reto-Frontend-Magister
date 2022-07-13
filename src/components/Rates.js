@@ -13,7 +13,7 @@ function Rates() {
 
           <div className="section1__container-task">
             <p className="section1__container-task__list">
-              <i class="fa-regular fa-circle fa-lg"></i>¿En qué te quieres
+              <i class="fa-solid fa-circle fa-lg  "></i>¿En qué te quieres
               especializar?
             </p>
 
@@ -23,7 +23,7 @@ function Rates() {
 
             <div className="section1__container-task__newcolor">
               <p className="section1__container-task__newcolor">
-                <i className="fa-solid fa-circle fa-lg"></i>
+                <i className="fa-regular fa-circle fa-lg"></i>
                 Tarifa
               </p>
             </div>
@@ -46,6 +46,9 @@ function Rates() {
         </section>
 
         <section className="section2">
+          <nav className="section2__menu">
+            <i className=" fa-solid fa-bars fa-4x  "></i>
+          </nav>
           <h2 className="section2__title">Selecciona tú Tarifa</h2>
 
           <h3 className="section2__subtitle">Tarifas</h3>

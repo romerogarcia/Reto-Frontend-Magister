@@ -13,7 +13,7 @@ function Payment() {
 
           <div className="section1__container-task">
             <p className="section1__container-task__list">
-              <i class="fa-regular fa-circle fa-lg"></i>¿En qué te quieres
+              <i class="fa-solid fa-circle fa-lg"></i>¿En qué te quieres
               especializar?
             </p>
 
@@ -35,7 +35,11 @@ function Payment() {
             </p>
             <div className="section1__container-task__newcolor">
               <p className="section1__container-task__newcolor">
-                <i className="fa-solid fa-circle fa-lg"></i>Forma de pago
+                <i
+                  className="
+               fa-regular fa-circle fa-lg "
+                ></i>
+                Forma de pago
               </p>
             </div>
           </div>
@@ -46,6 +50,9 @@ function Payment() {
         </section>
 
         <section className="section2-final">
+          <nav className="section2__menu">
+            <i className=" fa-solid fa-bars fa-4x  "></i>
+          </nav>
           <h2 className="section2-final__title">Forma de pago</h2>
           <h3 className="section2__container-alum__title">
             ¿Cómo prefieres abonar tu primer pago?
@@ -79,7 +86,7 @@ function Payment() {
           {/*RUTA AQUI */}
           <button className="section2__button" onClick={handleClickNext}>
             <Link className="section__button__link" to="/final">
-              Siguiente
+              Enviar
             </Link>
           </button>
           <p className="section__back">

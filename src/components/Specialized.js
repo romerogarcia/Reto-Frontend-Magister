@@ -20,7 +20,8 @@ function Specialized() {
             </div>
 
             <p className="section1__container-task__list">
-              <i className="fa-solid fa-circle fa-lg"></i>Horario y Modalidad
+              <i className="fa-solid fa-circle fa-lg"></i>
+              Horario y Modalidad
             </p>
 
             <p className="section1__container-task__list">
@@ -40,13 +41,15 @@ function Specialized() {
               <i className="fa-solid fa-circle fa-lg"></i>Forma de pago
             </p>
           </div>
-
           <section>
             <img alt="imagen persona" className="person-image" src={image} />
           </section>
         </section>
 
         <section className="section2">
+          <nav className="section2__menu">
+            <i className=" fa-solid fa-bars fa-4x  "></i>
+          </nav>
           <h2 className="section2__title">¿En qué te quieres especializar?</h2>
 
           <div className="section2__container-selects">

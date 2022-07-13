@@ -1,8 +1,5 @@
 .section2-final{
     float: right;
-    width: 60vw;
-    padding-left: 50px;
-    padding-right: 50px;
     &__menu-burguer{
         display: flex;
         justify-content: flex-end; 
@@ -13,12 +10,11 @@
 
     &__title{
         color: $color-light;
-        padding-top: 100px;
         display: flex;
         justify-content: center;
         text-align: center;
         font-size: 35px;
-        padding-bottom: 80px;
+      margin-bottom: 80px;
         
     }
 

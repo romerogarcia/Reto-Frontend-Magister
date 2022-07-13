@@ -13,13 +13,13 @@ function Modality() {
 
           <div className="section1__container-task">
             <p className="section1__container-task__list">
-              <i class="fa-regular fa-circle fa-lg"></i>¿En qué te quieres
+              <i class="fa-solid fa-circle fa-lg"></i>¿En qué te quieres
               especializar?
             </p>
 
             <div className="section1__container-task__newcolor">
               <p className="section1__container-task__newcolor">
-                <i className="fa-solid fa-circle fa-lg"></i>Horario y Modalidad
+                <i className="fa-regular fa-circle "></i>Horario y Modalidad
               </p>
             </div>
             <p className="section1__container-task__list">
@@ -46,6 +46,9 @@ function Modality() {
         </section>
 
         <section className="section2">
+          <nav className="section2__menu">
+            <i className=" fa-solid fa-bars fa-4x  "></i>
+          </nav>
           <h2 className="section2__title">
             Elige el horario y modalidad que más te acomode
           </h2>
@@ -100,6 +103,7 @@ function Modality() {
             </div>
           </div>
           {/*RUTA AQUI */}
+          <div></div>
           <button className="section2__button" onClick={handleClickNext}>
             <Link className="section__button__link" to="/rates">
               Siguiente
