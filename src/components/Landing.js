@@ -1,9 +1,9 @@
-import MainLanding from './MainLanding';
+import Mainlanding from './Mainlanding';
 function Landing() {
   return (
     <>
       <div className="Landing">
-        <MainLanding />
+        <Mainlanding />
       </div>
     </>
   );

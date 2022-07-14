@@ -69,7 +69,7 @@ function Payment() {
 
           <p className="section2-final__container-alum__text">
             Detalles sobre forma de pago y proceso post pago
-            <i class="fa-solid fa-arrow-right fa-lg"></i>
+            <i className="fa-solid fa-arrow-right fa-lg"></i>
           </p>
 
           <h3 className="section2-final__container-alum__title">
@@ -80,7 +80,7 @@ function Payment() {
 
           <p className="section2-final__container-alum__text">
             Ver información legal
-            <i class="fa-solid fa-arrow-right fa-lg"></i>
+            <i className="fa-solid fa-arrow-right fa-lg"></i>
           </p>
 
           {/*RUTA AQUI */}

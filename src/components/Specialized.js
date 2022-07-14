@@ -1,5 +1,6 @@
 import image from '../images/image1.png';
 import { Link } from 'react-router-dom';
+//import db from '../firebase';
 function Specialized() {
   const handleClickNext = () => {};
   return (
@@ -58,15 +59,18 @@ function Specialized() {
                 className="container-selects__label__text"
                 htmlFor="Status"
               >
-                Rama
+                <strong>Rama</strong>
                 <p>(Selecciona una opción)</p>
                 <select className="section2__container-selects__label__choices">
                   <option disabled selected>
                     Ej: Maestros - Audición y lenguajes
                   </option>
-                  <option value="all">All</option>
-                  <option value="Male">Male</option>
-                  <option value="Female">Female</option>
+                  <option value="Maestros - Audición y lenguajes">
+                    Maestros - Audición y lenguajes
+                  </option>
+                  <option value="Trabajadores Sociales - Discapacidad">
+                    Trabajadores Sociales - Discapacidad
+                  </option>
                 </select>
               </label>
             </div>
@@ -81,9 +85,8 @@ function Specialized() {
                   <option disabled selected>
                     Ej: Madrid
                   </option>
-                  <option value="all">All</option>
-                  <option value="Male">Male</option>
-                  <option value="Female">Female</option>
+                  <option value="Madrid">Madrid</option>
+                  <option value="Cádiz">Cádiz</option>
                 </select>
               </label>
             </div>

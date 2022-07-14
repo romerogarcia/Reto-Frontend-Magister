@@ -20,15 +20,15 @@ function Final() {
           </p>
 
           <button className="section__button" onClick={handleClickStart}>
-            <Link className="section__button__link" to="/landing">
+            <Link className="section__button__link" to="/">
               Vuelve a Home
             </Link>
           </button>
-          <a className="section__back">
+          <p className="section__back">
             <Link className="section__back" to="/payment">
               Volver atrás
             </Link>
-          </a>
+          </p>
         </section>
       </main>
     </>

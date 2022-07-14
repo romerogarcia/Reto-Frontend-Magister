@@ -13,7 +13,7 @@ function Address() {
 
           <div className="section1-address__container-task">
             <p className="section1-address__container-task__list">
-              <i class="fa-solid fa-circle fa-lg"></i>¿En qué te quieres
+              <i className="fa-solid fa-circle fa-lg"></i>¿En qué te quieres
               especializar?
             </p>
 
@@ -56,18 +56,21 @@ function Address() {
           <h2 className="section2__title">Tu dirección</h2>
           <form>
             <label className="section2__label" htmlFor="Status">
-              Comunidad de Exámen
+              <strong>Comunidad de Exámen</strong>
               <p className="section2__label__text">(Selecciona una opción)</p>
-              <select className="section2__label__option">
-                <option disabled selected>
+              <select
+                defaultValue={'DEFAULT'}
+                className="section2__label__option"
+              >
+                <option value={'DEFAULT'} disabled selected>
                   Ej: Madrid
                 </option>
                 <option value="option">Madrid</option>
               </select>
             </label>
 
-            <label className="section2__label" for="address">
-              Dirección
+            <label className="section2__label" htmlFor="address">
+              <strong>Dirección</strong>
               <input
                 className="section2__label__option"
                 type="text"
@@ -78,7 +81,7 @@ function Address() {
             </label>
 
             <div className="section2__inputs">
-              <label className="section2__inputs__label" for="locality">
+              <label className="section2__inputs__label" htmlFor="locality">
                 Localidad
                 <input
                   className="section2__inputs__label__box"
@@ -89,18 +92,18 @@ function Address() {
                 ></input>
               </label>
 
-              <label className="section2__inputs__label" for="province">
+              <label className="section2__inputs__label" htmlFor="province">
                 Provincia
                 <input
                   className="section2__inputs__label__box"
-                  type="tel"
+                  type="text"
                   name="province"
                   placeholder="Ej: Madrid"
                   required
                 ></input>
               </label>
 
-              <label className="section2__inputs__label" for="cp">
+              <label className="section2__inputs__label" htmlFor="cp">
                 Código Postal
                 <input
                   className="section2__inputs__label__box"
@@ -128,7 +131,7 @@ function Address() {
                 value="second_checkbox"
                 className="section2__checkbox__input2"
               />
-              <label for="cbox2" className="section2__checkbox__label">
+              <label htmlFor="cbox2" className="section2__checkbox__label">
                 Acepto la<span>protección de datos</span>
               </label>
             </div>

@@ -13,7 +13,7 @@ function Rates() {
 
           <div className="section1__container-task">
             <p className="section1__container-task__list">
-              <i class="fa-solid fa-circle fa-lg  "></i>¿En qué te quieres
+              <i className="fa-solid fa-circle fa-lg  "></i>¿En qué te quieres
               especializar?
             </p>
 

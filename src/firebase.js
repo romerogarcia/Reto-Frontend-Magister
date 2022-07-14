@@ -1,21 +1,21 @@
-// Import the functions you need from the SDKs you need
 import { initializeApp } from 'firebase/app';
-import { getAnalytics } from 'firebase/analytics';
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
+import { getFirestore } from '@firebase/firestore';
+import React, { useState, useEffect } from 'react';
 
-// Your web app's Firebase configuration
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+// TODO: Replace the following with your app's Firebase project configuration
 const firebaseConfig = {
-  apiKey: 'AIzaSyBtMhZJkTox4r4Y2q4g90_dfFn3ctSL2ec',
-  authDomain: 'reto-frontend-magister.firebaseapp.com',
-  projectId: 'reto-frontend-magister',
-  storageBucket: 'reto-frontend-magister.appspot.com',
-  messagingSenderId: '1025863687939',
-  appId: '1:1025863687939:web:049d3e61099b70f1f21336',
-  measurementId: 'G-GNDQ58Q1WB',
+  apiKey: 'AIzaSyBJzSNGdVRnCwZxLPMfD2f0j2Hf6vE5YY4',
+  authDomain: 'reto-frontend-magister-13792.firebaseapp.com',
+  projectId: 'reto-frontend-magister-13792',
+  storageBucket: 'reto-frontend-magister-13792.appspot.com',
+  messagingSenderId: '925675574686',
+  appId: '1:925675574686:web:195d9fba3ae5958cfe728f',
 };
 
-// Initialize Firebase
 const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
+
+//conectar los datos con app
+export const { db } = getFirestore(app);
+
+//datos
+const initialdata = {};

@@ -13,7 +13,7 @@ function Modality() {
 
           <div className="section1__container-task">
             <p className="section1__container-task__list">
-              <i class="fa-solid fa-circle fa-lg"></i>¿En qué te quieres
+              <i className="fa-solid fa-circle fa-lg"></i>¿En qué te quieres
               especializar?
             </p>
 
@@ -77,7 +77,7 @@ function Modality() {
                 className="container-selects__label__text"
                 htmlFor="Status"
               >
-                Horario
+                <strong>Horario</strong>
                 <p className="container-selects__label__text">
                   (Selecciona una opción)
                 </p>

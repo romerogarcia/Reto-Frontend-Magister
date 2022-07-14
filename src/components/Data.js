@@ -51,7 +51,7 @@ function Data() {
           </nav>
           <h2 className="section2__title">Tus datos personales</h2>
           <form>
-            <label className="section2__name" for="name">
+            <label className="section2__name" htmlFor="name">
               Nombre completo
               <input
                 className="section2__input"
@@ -63,7 +63,7 @@ function Data() {
             </label>
 
             <div className="section2__inputs">
-              <label className="section2__inputs__label" for="dni">
+              <label className="section2__inputs__label" htmlFor="dni">
                 DNI - NIE{' '}
                 <input
                   className="section2__inputs__label__box"
@@ -74,7 +74,7 @@ function Data() {
                 ></input>
               </label>
 
-              <label className="section2__inputs__label" for="phone">
+              <label className="section2__inputs__label" htmlFor="phone">
                 Móvil
                 <input
                   className="section2__inputs__label__box"
@@ -85,7 +85,7 @@ function Data() {
                 ></input>
               </label>
 
-              <label className="section2__inputs__label" for="email">
+              <label className="section2__inputs__label" htmlFor="email">
                 Email
                 <input
                   className="section2__inputs__label__box"
