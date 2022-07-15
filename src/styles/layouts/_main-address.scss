@@ -76,21 +76,22 @@
     margin-top: 50px;
     display: flex;
     align-items: center;
-    justify-content:space-between;
     
     &__label{
         font-size: 20px;
         color:$color-light;
         font-weight: bold;
         display: flex;
-        align-items: center;
+       align-items: center;
         justify-content: center;
         
         
         &__input{
-            border-radius:22px;
+            border-radius:30px;
             width: 30px;
             height: 30px;
+            margin-right: 20px;
+            cursor: pointer;
             
         }
     }
@@ -99,7 +100,9 @@
         border-radius: 30px;
         width: 30px;
         height: 30px;
-        margin-left: 40px;
+        margin-left: 50px;
+        margin-right: 20px;
+        cursor: pointer;
     }
 }
 
