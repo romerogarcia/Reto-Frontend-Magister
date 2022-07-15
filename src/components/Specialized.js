@@ -80,7 +80,7 @@ function Specialized() {
                 className="section2__container-selects__label__text"
                 htmlFor="Status"
               >
-                Provincia <p>(Selecciona una opción)</p>
+                <strong>Provincia</strong> <p>(Selecciona una opción)</p>
                 <select className="section2__container-selects__label__choices">
                   <option disabled selected>
                     Ej: Madrid
