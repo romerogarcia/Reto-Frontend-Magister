@@ -120,11 +120,15 @@ i {margin-right:20px}
         font-size: 16px;
         border-radius: 1em;
         cursor: pointer;
+        &:hover {
+            background-color: $color-button2;
+            color: $color-text;
+          }
         
     }
     &__button-b{
         background-color: $color-text;
-        border-color: $background-color;
+        border-color: $color-grey;
         color: $color-grey;
         margin-right: 150px;
         width: 250px;
@@ -132,6 +136,10 @@ i {margin-right:20px}
         font-size: 16px;
         border-radius: 1em;
         cursor: pointer;
+        &:hover {
+            background-color: $color-button2;
+            color: $color-text;
+          }
     }
 }
     &__container-material{
@@ -155,6 +163,10 @@ i {margin-right:20px}
             border-radius: 1em;
             border-style: none;
             cursor: pointer;
+            &:hover {
+                background-color: $color-task;
+                color: $color-text;
+              }
         }
     }
 

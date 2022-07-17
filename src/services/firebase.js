@@ -1,6 +1,6 @@
 import { initializeApp } from 'firebase/app';
 import { getFirestore } from '@firebase/firestore';
-import React, { useState, useEffect } from 'react';
+import firebase from 'firebase';
 
 // TODO: Replace the following with your app's Firebase project configuration
 const firebaseConfig = {
@@ -12,10 +12,7 @@ const firebaseConfig = {
   appId: '1:925675574686:web:195d9fba3ae5958cfe728f',
 };
 
+// Initialize Firebase and Firestore
 const app = initializeApp(firebaseConfig);
-
-//conectar los datos con app
-export const { db } = getFirestore(app);
-
-//datos
-const initialdata = {};
+const db = getFirestore(app);
+export { db };

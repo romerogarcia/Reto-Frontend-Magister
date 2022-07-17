@@ -124,6 +124,10 @@
             border-radius: 1em;
             margin-bottom: 20px;
             cursor: pointer;
+            &:hover {
+                background-color: $color-button2;
+                color: $color-text;
+              }
         }
     }
      

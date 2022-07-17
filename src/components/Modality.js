@@ -71,7 +71,7 @@ function Modality() {
             </button>
           </div>
 
-          <div className="section2__container-selects">
+          <form className="section2__container-selects">
             <div className="section2__container-selects__label">
               <label
                 className="container-selects__label__text"
@@ -101,9 +101,8 @@ function Modality() {
                 </select>
               </label>
             </div>
-          </div>
+          </form>
           {/*RUTA AQUI */}
-          <div></div>
           <button className="section2__button" onClick={handleClickNext}>
             <Link className="section__button__link" to="/rates">
               Siguiente

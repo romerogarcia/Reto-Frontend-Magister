@@ -1,6 +1,6 @@
 import image from '../images/image6.png';
 import { Link } from 'react-router-dom';
-function Payment() {
+function Payment(props) {
   const handleClickNext = () => {};
   return (
     <>
@@ -84,8 +84,8 @@ function Payment() {
           </p>
 
           {/*RUTA AQUI */}
-          <button className="section2__button" onClick={handleClickNext}>
-            <Link className="section__button__link" to="/final">
+          <button className="button-send" onClick={handleClickNext}>
+            <Link className="button-send__link" to="/final">
               Enviar
             </Link>
           </button>

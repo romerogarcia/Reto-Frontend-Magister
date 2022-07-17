@@ -72,7 +72,7 @@
     margin-bottom: 70px;
     &__button-1{
         background-color: $color-text;
-        border-color: $background-color;
+        border-color: $color-grey;
         color: $color-grey;
         margin-bottom: 20px;
         width: 850px;
@@ -80,10 +80,14 @@
         font-size: 16px;
         border-radius: 1em;
         cursor: pointer;
+        &:hover {
+            background-color: $color-button2;
+            color: $color-text;
+          }
     }
     &__button-2{
         background-color: $color-text;
-        border-color: $background-color;
+        border-color: $color-grey;
         color: $color-grey;
         margin-bottom: 20px;
         width: 900px;
@@ -91,10 +95,14 @@
         font-size: 16px;
         border-radius: 1em;
         cursor: pointer;
+        &:hover {
+            background-color: $color-button2;
+            color: $color-text;
+          }
     }
     &__button-3{
         background-color: $color-text;
-        border-color: $background-color;
+        border-color: $color-grey;
         color: $color-grey;
         margin-right: 30px;
         margin-bottom: 20px;
@@ -103,6 +111,10 @@
         font-size: 16px;
         border-radius: 1em;
         cursor: pointer;
+        &:hover {
+            background-color: $color-button2;
+            color: $color-text;
+          }
     }
 }
 
