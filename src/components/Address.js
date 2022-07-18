@@ -7,7 +7,7 @@ function Address() {
       <main>
         <section className="section1-address">
           <div className="section1-address__elements">
-            <i className="fa-solid fa-landmark fa-4x "></i>
+            <i className="fa-solid fa-landmark fa-4x"></i>
             <h1 className="section1-address__elements__title">Magister</h1>
           </div>
 
