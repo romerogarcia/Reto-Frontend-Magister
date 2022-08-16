@@ -3,7 +3,7 @@ function Landing() {
   return (
     <>
       <div className="Landing">
-        <Mainlanding />
+        <Mainlanding path="/Mainlanding" />
       </div>
     </>
   );
