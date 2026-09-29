@@ -128,6 +128,11 @@ npm run build    # build de producción en dist/
 npm run build:pages  # build para GitHub Pages en docs/
 ```
 
+### Despliegue en Vercel
+
+La configuración está en `vercel.json` (build de producción en `dist/magister-angular/browser` y
+redirección de todas las rutas a `index.html`). Cada `git push` a `main` despliega automáticamente.
+
 La demo se publica con GitHub Pages desde la carpeta `docs/` de la rama `main`.
 Para actualizarla: `npm run build:pages` y haz commit de `docs/`.
 
