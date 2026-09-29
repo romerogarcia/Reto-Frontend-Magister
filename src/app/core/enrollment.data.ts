@@ -5,15 +5,13 @@ export interface Option<T = string> {
   label: string;
 }
 
-/** Configuración visual de cada paso (menú lateral e ilustración). */
+/** Configuración de cada paso: ruta, texto del menú, título e ilustración. */
 export interface StepConfig {
   key: StepKey;
   path: string;
   label: string;
+  title: string;
   image: string;
-  /** Clase BEM del bloque lateral (la página de dirección usaba una propia). */
-  sidebarBlock: 'section1' | 'section1-address';
-  imageClass: string;
 }
 
 export const STEPS: readonly StepConfig[] = [
@@ -21,49 +19,43 @@ export const STEPS: readonly StepConfig[] = [
     key: 'specialization',
     path: 'specialized',
     label: '¿En qué te quieres especializar?',
+    title: '¿En qué te quieres especializar?',
     image: 'images/image1.png',
-    sidebarBlock: 'section1',
-    imageClass: 'person-image',
   },
   {
     key: 'modality',
     path: 'modality',
     label: 'Horario y Modalidad',
+    title: 'Elige el horario y modalidad que más te acomode',
     image: 'images/image2.png',
-    sidebarBlock: 'section1',
-    imageClass: 'section1__image',
   },
   {
     key: 'rate',
     path: 'rates',
     label: 'Tarifa',
+    title: 'Selecciona tu tarifa',
     image: 'images/image3.png',
-    sidebarBlock: 'section1',
-    imageClass: 'person-image',
   },
   {
     key: 'personalData',
     path: 'data',
     label: 'Datos personales',
+    title: 'Tus datos personales',
     image: 'images/image4.png',
-    sidebarBlock: 'section1',
-    imageClass: 'person-image',
   },
   {
     key: 'address',
     path: 'address',
     label: 'Dirección',
+    title: 'Tu dirección',
     image: 'images/image5.png',
-    sidebarBlock: 'section1-address',
-    imageClass: 'section1-address__image',
   },
   {
     key: 'payment',
     path: 'payment',
     label: 'Forma de pago',
+    title: 'Forma de pago',
     image: 'images/image6.png',
-    sidebarBlock: 'section1',
-    imageClass: 'section1__image',
   },
 ];
 
@@ -74,14 +66,10 @@ export const RAMAS: readonly string[] = [
 
 export const PROVINCIAS: readonly string[] = ['Madrid', 'Cádiz'];
 
-export const EX_ALUMNO_OPTIONS: readonly (Option<FormerStudent> & { cssClass: string })[] = [
-  { value: 'no', label: 'No', cssClass: 'section2__container-b__button' },
-  { value: 'si', label: 'Si', cssClass: 'section2__container-b__button' },
-  {
-    value: 'si-despues-2017',
-    label: 'Sí, después de 2017',
-    cssClass: 'section2__container-b__button-b',
-  },
+export const EX_ALUMNO_OPTIONS: readonly Option<FormerStudent>[] = [
+  { value: 'no', label: 'No' },
+  { value: 'si', label: 'Sí' },
+  { value: 'si-despues-2017', label: 'Sí, después de 2017' },
 ];
 
 export const MATERIAL = 'Material mes a mes';
@@ -106,7 +94,6 @@ export interface RateOption {
   id: string;
   descripcion: string;
   precio: number;
-  cssClass: string;
 }
 
 export const TARIFAS: readonly RateOption[] = [
@@ -114,26 +101,23 @@ export const TARIFAS: readonly RateOption[] = [
     id: 'semi-mes',
     descripcion: 'Inicio febrero 2021. Nuevo alumno SEMIPRESENCIAL - Material mes a mes -',
     precio: 101,
-    cssClass: 'section2__container-rates-list__button-1',
   },
   {
     id: 'mensualidad',
     descripcion: 'Inicio febrero 2021. Nuevo alumno SOLO MENSUALIDAD - Material mes a mes -',
     precio: 115,
-    cssClass: 'section2__container-rates-list__button-2',
   },
   {
     id: 'semi-matricula',
     descripcion:
       'Inicio febrero 2021. Nuevo alumno SEMIPRESENCIAL - Material mes a mes + MATRÍCULA -',
     precio: 216,
-    cssClass: 'section2__container-rates-list__button-3',
   },
 ];
 
 export const COMUNIDADES: readonly string[] = ['Madrid'];
 
 export const METODOS_PAGO: readonly Option<PaymentMethod>[] = [
-  { value: 'tarjeta', label: 'Tarjeta de crédito/cébito (Recomendado)' },
+  { value: 'tarjeta', label: 'Tarjeta de crédito/débito (Recomendado)' },
   { value: 'transferencia', label: 'Transferencia bancaria' },
 ];

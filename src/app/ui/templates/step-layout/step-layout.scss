@@ -1,0 +1,55 @@
+@use 'abstracts' as *;
+
+.t-step-layout {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  grid-template-columns: 1fr;
+  min-height: 100vh;
+
+  @include mq(lg) {
+    grid-template-rows: 1fr;
+    grid-template-columns: minmax($sidebar-min-width, $sidebar-width) 1fr;
+  }
+
+  &__main {
+    padding: $space-6 $space-4 $space-12;
+
+    @include mq(md) {
+      padding: $space-8 $space-10 $space-16;
+    }
+
+    @include mq(lg) {
+      padding: $space-10 $page-gutter-desktop $space-16;
+    }
+  }
+
+  // Icono de menú decorativo del diseño original (solo escritorio).
+  &__menu {
+    display: none;
+
+    @include mq(lg) {
+      display: flex;
+      justify-content: flex-end;
+      font-size: $icon-size-xl;
+      color: $color-text-subtle;
+    }
+  }
+
+  &__title {
+    max-width: $content-max-width;
+    margin: 0 auto $space-8;
+    font-size: $font-size-title;
+    line-height: $line-height-tight;
+    color: $color-text-muted;
+    text-align: center;
+
+    @include mq(lg) {
+      margin: $space-10 auto $space-16;
+    }
+  }
+
+  &__content {
+    max-width: $content-max-width;
+    margin: 0 auto;
+  }
+}

@@ -1,61 +1,28 @@
-<main>
-  <section appStepsSidebar [current]="1"></section>
+<app-step-layout [step]="1">
+  <form class="l-stack" [formGroup]="form" (ngSubmit)="next()" novalidate>
+    <fieldset
+      appFieldset
+      legend="Modalidad"
+      hint="(Selecciona una opción)"
+      [control]="form.controls.modalidad"
+    >
+      <app-choice-group formControlName="modalidad" layout="grid" [options]="modalidadOptions" />
+    </fieldset>
 
-  <section class="section2">
-    <nav class="section2__menu" aria-label="Menú">
-      <i class="fa-solid fa-bars fa-4x" aria-hidden="true"></i>
-    </nav>
-    <h2 class="section2__title">Elige el horario y modalidad que más te acomode</h2>
-
-    <h3 class="section2__subtitle">
-      Modalidad
-      <app-field-error
-        [control]="form.controls.modalidad"
-        [messages]="{ required: 'Selecciona una opción' }"
-      />
-    </h3>
-    <p class="section2__text">(Selecciona una opción)</p>
-
-    <div class="section2__container-b" role="radiogroup" aria-label="Modalidad">
-      @for (modalidad of modalidades; track modalidad) {
-        <button
-          type="button"
-          role="radio"
-          class="section2__container-b__button-big"
-          [class.is-selected]="form.controls.modalidad.value === modalidad"
-          [attr.aria-checked]="form.controls.modalidad.value === modalidad"
-          (click)="chooseModalidad(modalidad)"
-        >
-          {{ modalidad }}
-        </button>
-      }
-    </div>
-
-    <form class="section2__container-selects" [formGroup]="form" (ngSubmit)="next()">
-      <div class="section2__container-selects__label" formArrayName="horarios">
-        <label class="container-selects__label__text" for="horario-0">
-          <strong>Horario</strong>
-          <p class="container-selects__label__text">(Selecciona una opción)</p>
-          @for (control of form.controls.horarios.controls; track $index; let i = $index) {
-            <select
-              class="section2__container-selects__label__options"
-              [id]="'horario-' + i"
-              [formControlName]="i"
-            >
+    <fieldset appFieldset legend="Horario" hint="(Selecciona una opción)" formArrayName="horarios">
+      <div class="l-grid">
+        @for (control of form.controls.horarios.controls; track $index; let i = $index) {
+          <app-form-field [label]="'Horario, opción ' + (i + 1)" [for]="'horario-' + i" hideLabel>
+            <select appControl [id]="'horario-' + i" [formControlName]="i">
               @for (horario of horarios; track horario) {
                 <option [value]="horario">{{ horario }}</option>
               }
             </select>
-          }
-        </label>
+          </app-form-field>
+        }
       </div>
-    </form>
+    </fieldset>
 
-    <button type="button" class="section2__button" (click)="next()">
-      <span class="section__button__link">Siguiente</span>
-    </button>
-    <p class="section__back">
-      <a class="section__back" routerLink="/specialized">Volver atrás</a>
-    </p>
-  </section>
-</main>
+    <app-step-actions backLink="/specialized" />
+  </form>
+</app-step-layout>

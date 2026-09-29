@@ -1,0 +1,42 @@
+// =============================================================================
+// Colores
+// Paleta de marca (valores del diseño original) + alias semánticos.
+// Los componentes usan SIEMPRE los alias semánticos, nunca la paleta directa.
+// =============================================================================
+
+// Paleta
+$navy-900: #23345f;
+$navy-900-a60: rgb(35 52 95 / 61.2%); // #23345f9c del diseño original
+$steel-400: #7483b4;
+$sky-500: #3ab0ff;
+$sky-200: #abc9ff;
+$neutral-0: #fff;
+$neutral-300: #c4c4c4;
+$neutral-500: #888;
+$red-500: #d64545;
+$black-a15: rgb(0 0 0 / 15%);
+
+// Superficies
+$color-surface: $neutral-0;
+$color-surface-brand: $navy-900;
+
+// Texto
+$color-text: $navy-900;
+$color-text-muted: $navy-900-a60;
+$color-text-subtle: $neutral-500;
+$color-text-inverse: $neutral-0;
+$color-text-inverse-muted: $steel-400;
+$color-placeholder: $neutral-300;
+
+// Acciones
+$color-action: $sky-500;
+$color-action-soft: $sky-200;
+$color-action-soft-strong: $steel-400;
+
+// Bordes
+$color-border: $neutral-500;
+$color-border-input: rgba($steel-400, 0.5);
+
+// Estados
+$color-error: $red-500;
+$color-focus: $sky-500;

@@ -1,0 +1,53 @@
+@use 'abstracts' as *;
+
+.t-hero {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  padding: $space-6 $space-4 $space-12;
+  color: $color-text-inverse;
+  background-color: $color-surface-brand;
+
+  @include mq(md) {
+    padding: $space-10 $space-12 $space-16;
+  }
+
+  &__menu {
+    display: flex;
+    justify-content: flex-end;
+    font-size: $icon-size-md;
+
+    @include mq(md) {
+      font-size: $icon-size-xl;
+    }
+  }
+
+  &__content {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    gap: $space-8;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+
+    @include mq(md) {
+      gap: $space-12;
+    }
+  }
+
+  &__title {
+    font-size: $font-size-display;
+    font-weight: $font-weight-bold;
+    line-height: $line-height-tight;
+  }
+
+  &__text {
+    max-width: $hero-text-width;
+    font-size: $font-size-lead;
+
+    &--wide {
+      max-width: $hero-text-width-wide;
+    }
+  }
+}

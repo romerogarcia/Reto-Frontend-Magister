@@ -5,12 +5,24 @@ import { Router } from '@angular/router';
 import { EX_ALUMNO_OPTIONS, MATERIAL, PROVINCIAS, RAMAS } from '../../core/enrollment.data';
 import { FormerStudent, Specialization } from '../../core/enrollment.model';
 import { EnrollmentStore } from '../../core/enrollment.store';
-import { FieldError } from '../../shared/field-error/field-error';
-import { StepsSidebar } from '../../shared/steps-sidebar/steps-sidebar';
+import { Control } from '../../ui/atoms/control/control';
+import { ChoiceGroup } from '../../ui/molecules/choice-group/choice-group';
+import { Fieldset } from '../../ui/molecules/fieldset/fieldset';
+import { FormField } from '../../ui/molecules/form-field/form-field';
+import { StepActions } from '../../ui/molecules/step-actions/step-actions';
+import { StepLayout } from '../../ui/templates/step-layout/step-layout';
 
 @Component({
   selector: 'app-specialized',
-  imports: [ReactiveFormsModule, StepsSidebar, FieldError],
+  imports: [
+    ReactiveFormsModule,
+    StepLayout,
+    FormField,
+    Fieldset,
+    ChoiceGroup,
+    Control,
+    StepActions,
+  ],
   templateUrl: './specialized.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
@@ -22,7 +34,7 @@ export class SpecializedPage {
   protected readonly ramas = RAMAS;
   protected readonly provincias = PROVINCIAS;
   protected readonly exAlumnoOptions = EX_ALUMNO_OPTIONS;
-  protected readonly material = MATERIAL;
+  protected readonly materialOptions = [{ value: MATERIAL, label: MATERIAL }];
 
   protected readonly form = this.fb.group({
     rama: ['', Validators.required],
@@ -36,12 +48,6 @@ export class SpecializedPage {
     if (saved) {
       this.form.setValue(saved);
     }
-  }
-
-  protected choose(control: 'exAlumno' | 'material', value: string): void {
-    const ctrl = this.form.controls[control];
-    ctrl.setValue(value as never);
-    ctrl.markAsTouched();
   }
 
   protected next(): void {

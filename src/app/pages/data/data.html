@@ -1,80 +1,49 @@
-<main>
-  <section appStepsSidebar [current]="3"></section>
+<app-step-layout [step]="3">
+  <form class="l-stack" [formGroup]="form" (ngSubmit)="next()" novalidate>
+    <app-form-field
+      label="Nombre completo"
+      for="name"
+      [control]="form.controls.nombre"
+      [messages]="{ minlength: 'Escribe tu nombre completo' }"
+    >
+      <input
+        appControl
+        id="name"
+        type="text"
+        autocomplete="name"
+        formControlName="nombre"
+        placeholder="Ej: May García Sánchez"
+      />
+    </app-form-field>
 
-  <section class="section2">
-    <nav class="section2__menu" aria-label="Menú">
-      <i class="fa-solid fa-bars fa-4x" aria-hidden="true"></i>
-    </nav>
-    <h2 class="section2__title">Tus datos personales</h2>
-    <form [formGroup]="form" (ngSubmit)="next()">
-      <label class="section2__name" for="name">
-        Nombre completo
-        <app-field-error
-          [control]="form.controls.nombre"
-          [messages]="{ minlength: 'Escribe tu nombre completo' }"
-        />
+    <div class="l-grid l-grid--3">
+      <app-form-field label="DNI - NIE" for="dni" [control]="form.controls.dni">
+        <input appControl id="dni" type="text" formControlName="dni" placeholder="Ej: Y5674859P" />
+      </app-form-field>
+
+      <app-form-field label="Móvil" for="phone" [control]="form.controls.movil">
         <input
-          id="name"
-          class="section2__input"
-          type="text"
-          autocomplete="name"
-          formControlName="nombre"
-          placeholder="Ej: May García Sánchez"
-          [class.is-invalid]="invalid('nombre')"
+          appControl
+          id="phone"
+          type="tel"
+          autocomplete="tel"
+          formControlName="movil"
+          placeholder="Ej: 605 45 32 97"
         />
-      </label>
+      </app-form-field>
 
-      <div class="section2__inputs">
-        <label class="section2__inputs__label" for="dni">
-          DNI - NIE
-          <app-field-error [control]="form.controls.dni" />
-          <input
-            id="dni"
-            class="section2__inputs__label__box"
-            type="text"
-            formControlName="dni"
-            placeholder="Ej: Y5674859P"
-            [class.is-invalid]="invalid('dni')"
-          />
-        </label>
+      <app-form-field label="Email" for="email" [control]="form.controls.email">
+        <input
+          appControl
+          id="email"
+          type="email"
+          autocomplete="email"
+          formControlName="email"
+          placeholder="Ej: maygarcia@gmail.com"
+        />
+      </app-form-field>
+    </div>
 
-        <label class="section2__inputs__label" for="phone">
-          Móvil
-          <app-field-error [control]="form.controls.movil" />
-          <input
-            id="phone"
-            class="section2__inputs__label__box"
-            type="tel"
-            autocomplete="tel"
-            formControlName="movil"
-            placeholder="Ej: 605 45 32 97"
-            [class.is-invalid]="invalid('movil')"
-          />
-        </label>
-
-        <label class="section2__inputs__label" for="email">
-          Email
-          <app-field-error [control]="form.controls.email" />
-          <input
-            id="email"
-            class="section2__inputs__label__box"
-            type="email"
-            autocomplete="email"
-            formControlName="email"
-            placeholder="Ej: maygarcia@gmail.com"
-            [class.is-invalid]="invalid('email')"
-          />
-        </label>
-      </div>
-      <!-- Permite enviar con Enter -->
-      <button type="submit" hidden></button>
-    </form>
-
-    <button type="button" class="section2__button" (click)="next()">
-      <span class="section__button__link">Siguiente</span>
-    </button>
-    <p class="section__back">
-      <a class="section__back" routerLink="/rates">Volver atrás</a>
-    </p>
-  </section>
-</main>
+    <app-step-actions backLink="/rates" />
+  </form>
+</app-step-layout>

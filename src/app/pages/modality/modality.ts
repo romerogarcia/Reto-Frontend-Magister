@@ -1,15 +1,27 @@
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
-import { Router, RouterLink } from '@angular/router';
+import { Router } from '@angular/router';
 
 import { HORARIOS, HORARIO_SLOTS, MODALIDADES } from '../../core/enrollment.data';
 import { EnrollmentStore } from '../../core/enrollment.store';
-import { FieldError } from '../../shared/field-error/field-error';
-import { StepsSidebar } from '../../shared/steps-sidebar/steps-sidebar';
+import { Control } from '../../ui/atoms/control/control';
+import { ChoiceGroup } from '../../ui/molecules/choice-group/choice-group';
+import { Fieldset } from '../../ui/molecules/fieldset/fieldset';
+import { FormField } from '../../ui/molecules/form-field/form-field';
+import { StepActions } from '../../ui/molecules/step-actions/step-actions';
+import { StepLayout } from '../../ui/templates/step-layout/step-layout';
 
 @Component({
   selector: 'app-modality',
-  imports: [ReactiveFormsModule, RouterLink, StepsSidebar, FieldError],
+  imports: [
+    ReactiveFormsModule,
+    StepLayout,
+    Fieldset,
+    FormField,
+    ChoiceGroup,
+    Control,
+    StepActions,
+  ],
   templateUrl: './modality.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
@@ -18,7 +30,7 @@ export class ModalityPage {
   private readonly router = inject(Router);
   private readonly fb = inject(FormBuilder).nonNullable;
 
-  protected readonly modalidades = MODALIDADES;
+  protected readonly modalidadOptions = MODALIDADES.map((m) => ({ value: m, label: m }));
   protected readonly horarios = HORARIOS;
 
   protected readonly form = this.fb.group({
@@ -35,11 +47,6 @@ export class ModalityPage {
     if (saved) {
       this.form.setValue(saved);
     }
-  }
-
-  protected chooseModalidad(value: string): void {
-    this.form.controls.modalidad.setValue(value);
-    this.form.controls.modalidad.markAsTouched();
   }
 
   protected next(): void {

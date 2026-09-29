@@ -1,127 +1,76 @@
-<main>
-  <section appStepsSidebar [current]="4"></section>
+<app-step-layout [step]="4">
+  <form class="l-stack" [formGroup]="form" (ngSubmit)="next()" novalidate>
+    <app-form-field
+      label="Comunidad de examen"
+      hint="(Selecciona una opción)"
+      for="comunidad"
+      [control]="form.controls.comunidad"
+      [messages]="{ required: 'Selecciona una opción' }"
+    >
+      <select appControl id="comunidad" formControlName="comunidad">
+        <option value="" disabled>Ej: Madrid</option>
+        @for (comunidad of comunidades; track comunidad) {
+          <option [value]="comunidad">{{ comunidad }}</option>
+        }
+      </select>
+    </app-form-field>
 
-  <section class="section2">
-    <nav class="section2__menu" aria-label="Menú">
-      <i class="fa-solid fa-bars fa-4x" aria-hidden="true"></i>
-    </nav>
-    <h2 class="section2__title">Tu dirección</h2>
-    <form [formGroup]="form" (ngSubmit)="next()">
-      <label class="section2__label" for="comunidad">
-        <strong>Comunidad de Exámen</strong>
-        <app-field-error
-          [control]="form.controls.comunidad"
-          [messages]="{ required: 'Selecciona una opción' }"
-        />
-        <p class="section2__label__text">(Selecciona una opción)</p>
-        <select
-          id="comunidad"
-          class="section2__label__option"
-          formControlName="comunidad"
-          [class.is-invalid]="invalid('comunidad')"
-        >
-          <option value="" disabled>Ej: Madrid</option>
-          @for (comunidad of comunidades; track comunidad) {
-            <option [value]="comunidad">{{ comunidad }}</option>
-          }
-        </select>
-      </label>
+    <app-form-field label="Dirección" for="address" [control]="form.controls.direccion">
+      <input
+        appControl
+        id="address"
+        type="text"
+        autocomplete="street-address"
+        formControlName="direccion"
+        placeholder="Ej: Calle Ramiro de Maeztu, 10, 4D"
+      />
+    </app-form-field>
 
-      <label class="section2__label" for="address">
-        <strong>Dirección</strong>
-        <app-field-error [control]="form.controls.direccion" />
+    <div class="l-grid l-grid--3">
+      <app-form-field label="Localidad" for="locality" [control]="form.controls.localidad">
         <input
-          id="address"
-          class="section2__label__option"
+          appControl
+          id="locality"
           type="text"
-          autocomplete="street-address"
-          formControlName="direccion"
-          placeholder="Ej: Calle Ramiro de Maxtu, 10, 4D"
-          [class.is-invalid]="invalid('direccion')"
+          autocomplete="address-level2"
+          formControlName="localidad"
+          placeholder="Ej: Madrid"
         />
-      </label>
+      </app-form-field>
 
-      <div class="section2__inputs">
-        <label class="section2__inputs__label" for="locality">
-          Localidad
-          <app-field-error [control]="form.controls.localidad" />
-          <input
-            id="locality"
-            class="section2__inputs__label__box"
-            type="text"
-            autocomplete="address-level2"
-            formControlName="localidad"
-            placeholder="Ej: Madrid"
-            [class.is-invalid]="invalid('localidad')"
-          />
-        </label>
-
-        <label class="section2__inputs__label" for="province">
-          Provincia
-          <app-field-error [control]="form.controls.provincia" />
-          <input
-            id="province"
-            class="section2__inputs__label__box"
-            type="text"
-            autocomplete="address-level1"
-            formControlName="provincia"
-            placeholder="Ej: Madrid"
-            [class.is-invalid]="invalid('provincia')"
-          />
-        </label>
-
-        <label class="section2__inputs__label" for="cp">
-          Código Postal
-          <app-field-error [control]="form.controls.cp" />
-          <input
-            id="cp"
-            class="section2__inputs__label__box"
-            type="text"
-            inputmode="numeric"
-            autocomplete="postal-code"
-            formControlName="cp"
-            placeholder="Ej: 28405"
-            [class.is-invalid]="invalid('cp')"
-          />
-        </label>
-      </div>
-
-      <div class="section2__checkbox">
-        <label class="section2__checkbox__label" for="cbox1">
-          <input
-            type="checkbox"
-            id="cbox1"
-            class="section2__checkbox__label__input"
-            formControlName="aceptaLegal"
-          />
-          Acepto la <span> información legal</span>
-          <app-field-error
-            [control]="form.controls.aceptaLegal"
-            [messages]="{ required: 'Debes aceptarla' }"
-          />
-        </label>
+      <app-form-field label="Provincia" for="province" [control]="form.controls.provincia">
         <input
-          type="checkbox"
-          id="cbox2"
-          class="section2__checkbox__input2"
-          formControlName="aceptaPrivacidad"
+          appControl
+          id="province"
+          type="text"
+          autocomplete="address-level1"
+          formControlName="provincia"
+          placeholder="Ej: Madrid"
         />
-        <label for="cbox2" class="section2__checkbox__label">
-          Acepto la<span>protección de datos</span>
-          <app-field-error
-            [control]="form.controls.aceptaPrivacidad"
-            [messages]="{ required: 'Debes aceptarla' }"
-          />
-        </label>
-      </div>
-      <button type="submit" hidden></button>
-    </form>
+      </app-form-field>
 
-    <button type="button" class="section2__button" (click)="next()">
-      <span class="section__button__link">Siguiente</span>
-    </button>
-    <p class="section__back">
-      <a class="section__back" routerLink="/data">Volver atrás</a>
-    </p>
-  </section>
-</main>
+      <app-form-field label="Código postal" for="cp" [control]="form.controls.cp">
+        <input
+          appControl
+          id="cp"
+          type="text"
+          inputmode="numeric"
+          autocomplete="postal-code"
+          formControlName="cp"
+          placeholder="Ej: 28405"
+        />
+      </app-form-field>
+    </div>
+
+    <div class="l-grid l-grid--2">
+      <app-checkbox formControlName="aceptaLegal">
+        Acepto la <em class="m-checkbox__highlight">información legal</em>
+      </app-checkbox>
+      <app-checkbox formControlName="aceptaPrivacidad">
+        Acepto la <em class="m-checkbox__highlight">protección de datos</em>
+      </app-checkbox>
+    </div>
+
+    <app-step-actions backLink="/data" />
+  </form>
+</app-step-layout>

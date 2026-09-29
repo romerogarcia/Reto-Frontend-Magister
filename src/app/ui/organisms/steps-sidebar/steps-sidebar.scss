@@ -1,0 +1,109 @@
+@use 'abstracts' as *;
+
+.o-steps-sidebar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $space-3 $space-6;
+  align-items: center;
+  justify-content: space-between;
+  padding: $space-4;
+  color: $color-text-inverse;
+  background-color: $color-surface-brand;
+
+  @include mq(md) {
+    padding: $space-5 $space-10;
+  }
+
+  // ---- Progreso compacto (solo móvil y tablet) ----
+  &__progress {
+    flex: 1 1 100%;
+
+    @include mq(md) {
+      flex-basis: 50%;
+    }
+  }
+
+  &__progress-text {
+    margin-bottom: $space-2;
+    font-size: $font-size-sm;
+  }
+
+  &__progress-bar {
+    height: $progress-height;
+    overflow: hidden;
+    background-color: rgba($color-text-inverse, 0.2);
+    border-radius: $radius-md;
+  }
+
+  &__progress-fill {
+    display: block;
+    height: 100%;
+    background-color: $color-action;
+    border-radius: inherit;
+    transition: width 0.3s ease;
+  }
+
+  // ---- Lista de pasos e ilustración (solo escritorio) ----
+  &__nav,
+  &__illustration {
+    display: none;
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: $space-10;
+    list-style: none;
+  }
+
+  &__item {
+    display: flex;
+    gap: $space-5;
+    align-items: center;
+    color: $color-text-inverse-muted;
+
+    &--active {
+      color: $color-text-inverse;
+    }
+  }
+
+  &__link {
+    @include focus-ring;
+
+    @include hover {
+      color: $color-text-inverse;
+      text-decoration: underline;
+    }
+  }
+
+  &__illustration {
+    flex-shrink: 1;
+    width: 100%;
+    max-width: $illustration-max-width;
+    min-height: 0;
+    max-height: $illustration-max-height;
+    margin-top: auto;
+    object-fit: contain;
+  }
+
+  // ---- Escritorio: columna lateral a toda altura ----
+  @include mq(lg) {
+    position: sticky;
+    top: 0;
+    flex-flow: column nowrap;
+    gap: $space-12;
+    justify-content: flex-start;
+    height: 100vh;
+    padding: $space-16 $space-8 $space-8;
+    overflow-y: auto;
+
+    &__progress {
+      display: none;
+    }
+
+    &__nav,
+    &__illustration {
+      display: block;
+    }
+  }
+}

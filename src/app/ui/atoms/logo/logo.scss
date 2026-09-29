@@ -1,0 +1,48 @@
+@use 'abstracts' as *;
+
+.a-logo {
+  display: inline-flex;
+  gap: $space-5;
+  align-items: center;
+  color: $color-text-inverse;
+
+  &__mark {
+    font-size: $icon-size-sm;
+  }
+
+  &__text {
+    font-size: $font-size-xl;
+    font-weight: $font-weight-bold;
+    line-height: $line-height-tight;
+  }
+
+  &--md {
+    @include mq(lg) {
+      .a-logo__mark {
+        font-size: $icon-size-xl;
+      }
+
+      .a-logo__text {
+        font-size: $font-size-3xl;
+      }
+    }
+  }
+
+  &--lg {
+    .a-logo__mark {
+      font-size: $icon-size-lg;
+
+      @include mq(md) {
+        font-size: $icon-size-xl;
+      }
+    }
+
+    .a-logo__text {
+      font-size: $font-size-3xl;
+
+      @include mq(md) {
+        font-size: $font-size-4xl;
+      }
+    }
+  }
+}

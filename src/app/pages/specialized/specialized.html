@@ -1,109 +1,53 @@
-<main>
-  <section appStepsSidebar [current]="0"></section>
-
-  <section class="section2">
-    <nav class="section2__menu" aria-label="Menú">
-      <i class="fa-solid fa-bars fa-4x" aria-hidden="true"></i>
-    </nav>
-    <h2 class="section2__title">¿En qué te quieres especializar?</h2>
-
-    <div class="section2__container-selects" [formGroup]="form">
-      <div class="section2__container-selects__label">
-        <label class="container-selects__label__text" for="rama">
-          <strong>Rama</strong>
-          <app-field-error [control]="form.controls.rama" />
-          <p>(Selecciona una opción)</p>
-          <select
-            id="rama"
-            class="section2__container-selects__label__choices"
-            formControlName="rama"
-            [class.is-invalid]="form.controls.rama.invalid && form.controls.rama.touched"
-          >
-            <option value="" disabled>Ej: Maestros - Audición y lenguajes</option>
-            @for (rama of ramas; track rama) {
-              <option [value]="rama">{{ rama }}</option>
-            }
-          </select>
-        </label>
-      </div>
-
-      <div class="section2__container-selects__label">
-        <label class="section2__container-selects__label__text" for="provincia">
-          <strong>Provincia</strong>
-          <app-field-error [control]="form.controls.provincia" />
-          <p>(Selecciona una opción)</p>
-          <select
-            id="provincia"
-            class="section2__container-selects__label__choices"
-            formControlName="provincia"
-            [class.is-invalid]="form.controls.provincia.invalid && form.controls.provincia.touched"
-          >
-            <option value="" disabled>Ej: Madrid</option>
-            @for (provincia of provincias; track provincia) {
-              <option [value]="provincia">{{ provincia }}</option>
-            }
-          </select>
-        </label>
-      </div>
-    </div>
-
-    <div class="section2__container-alum">
-      <h3 class="section2__container-alum__title">
-        ¿Has sido alumn&#64; de Magister?
-        <app-field-error
-          [control]="form.controls.exAlumno"
-          [messages]="{ required: 'Selecciona una opción' }"
-        />
-      </h3>
-      <p class="section2__container-alum__text">
-        Consulta Condiciones <i class="fa-solid fa-arrow-right fa-lg" aria-hidden="true"></i>
-      </p>
-
-      <div
-        class="section2__container-b"
-        role="radiogroup"
-        aria-label="¿Has sido alumno de Magister?"
+<app-step-layout [step]="0">
+  <form class="l-stack" [formGroup]="form" (ngSubmit)="next()" novalidate>
+    <div class="l-grid l-grid--2">
+      <app-form-field
+        label="Rama"
+        hint="(Selecciona una opción)"
+        for="rama"
+        [control]="form.controls.rama"
       >
-        @for (option of exAlumnoOptions; track option.value) {
-          <button
-            type="button"
-            role="radio"
-            [class]="option.cssClass"
-            [class.is-selected]="form.controls.exAlumno.value === option.value"
-            [attr.aria-checked]="form.controls.exAlumno.value === option.value"
-            (click)="choose('exAlumno', option.value)"
-          >
-            {{ option.label }}
-          </button>
-        }
-      </div>
+        <select appControl id="rama" formControlName="rama">
+          <option value="" disabled>Ej: Maestros - Audición y lenguajes</option>
+          @for (rama of ramas; track rama) {
+            <option [value]="rama">{{ rama }}</option>
+          }
+        </select>
+      </app-form-field>
 
-      <div class="section2__container-material">
-        <h3 class="section2__container-material__title">
-          Entrega de material
-          <app-field-error
-            [control]="form.controls.material"
-            [messages]="{ required: 'Selecciona una opción' }"
-          />
-        </h3>
-        <p class="section2__container-material__text">
-          Consulta Condiciones
-          <i class="fa-solid fa-arrow-right fa-lg" aria-hidden="true"></i>
-        </p>
-        <button
-          type="button"
-          class="section2__container-material__button"
-          [class.is-selected]="form.controls.material.value === material"
-          [attr.aria-pressed]="form.controls.material.value === material"
-          (click)="choose('material', material)"
-        >
-          {{ material }}
-        </button>
-      </div>
-
-      <button type="button" class="section2__button" (click)="next()">
-        <span class="section__button__link">Siguiente</span>
-      </button>
+      <app-form-field
+        label="Provincia"
+        hint="(Selecciona una opción)"
+        for="provincia"
+        [control]="form.controls.provincia"
+      >
+        <select appControl id="provincia" formControlName="provincia">
+          <option value="" disabled>Ej: Madrid</option>
+          @for (provincia of provincias; track provincia) {
+            <option [value]="provincia">{{ provincia }}</option>
+          }
+        </select>
+      </app-form-field>
     </div>
-  </section>
-</main>
+
+    <fieldset
+      appFieldset
+      legend="¿Has sido alumn&#64; de Magister?"
+      info="Consulta condiciones"
+      [control]="form.controls.exAlumno"
+    >
+      <app-choice-group formControlName="exAlumno" [options]="exAlumnoOptions" />
+    </fieldset>
+
+    <fieldset
+      appFieldset
+      legend="Entrega de material"
+      info="Consulta condiciones"
+      [control]="form.controls.material"
+    >
+      <app-choice-group formControlName="material" variant="soft" [options]="materialOptions" />
+    </fieldset>
+
+    <app-step-actions backLink="/" />
+  </form>
+</app-step-layout>

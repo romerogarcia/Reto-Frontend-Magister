@@ -1,0 +1,32 @@
+// -----------------------------------------------------------------------------
+// Layout: rejilla responsive para colocar campos y grupos.
+// -----------------------------------------------------------------------------
+@use 'abstracts' as *;
+
+.l-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: $space-6 $space-8;
+
+  &--2 {
+    @include mq(md) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  &--3 {
+    @include mq(md) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+}
+
+.l-stack {
+  display: flex;
+  flex-direction: column;
+  gap: $space-8;
+
+  @include mq(lg) {
+    gap: $space-10;
+  }
+}

@@ -1,0 +1,10 @@
+@use 'abstracts' as *;
+
+.a-info-link {
+  display: inline-flex;
+  gap: $space-3;
+  align-items: center;
+  font-size: $font-size-lg;
+  font-weight: $font-weight-bold;
+  color: $color-action;
+}

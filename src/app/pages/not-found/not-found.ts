@@ -1,15 +1,18 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
 
+import { Button } from '../../ui/atoms/button/button';
+import { HeroLayout } from '../../ui/templates/hero-layout/hero-layout';
+
 @Component({
   selector: 'app-not-found',
-  imports: [RouterLink],
+  imports: [HeroLayout, Button, RouterLink],
   template: `
-    <div class="containerNotFound">
-      <h2 class="containerNotFound__title">A small problem has occurred</h2>
-      <p>We can't find the detail of this page ☠️</p>
-      <a class="containerNotFound__linkBack" routerLink="/"></a>
-    </div>
+    <app-hero-layout>
+      <h1 class="t-hero__title">Página no encontrada</h1>
+      <p class="t-hero__text">No encontramos la página que buscas.</p>
+      <a appButton routerLink="/">Volver al inicio</a>
+    </app-hero-layout>
   `,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

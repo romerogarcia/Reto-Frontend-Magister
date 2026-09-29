@@ -16,16 +16,21 @@ describe('DataPage', () => {
     input.dispatchEvent(new Event('input'));
   };
 
+  const submit = (el: HTMLElement) =>
+    el.querySelector<HTMLButtonElement>('.m-step-actions .a-button--primary')!.click();
+
   it('muestra errores y no avanza si el formulario es inválido', async () => {
     const fixture = TestBed.createComponent(DataPage);
     const el = fixture.nativeElement as HTMLElement;
     const navigate = vi.spyOn(TestBed.inject(Router), 'navigate');
     await fixture.whenStable();
 
-    el.querySelector<HTMLButtonElement>('.section2__button')!.click();
+    submit(el);
     await fixture.whenStable();
 
-    expect(el.querySelectorAll('.form-error').length).toBe(4);
+    expect(el.querySelectorAll('.m-form-field__error').length).toBe(4);
+    expect(el.querySelectorAll('.a-control--invalid').length).toBe(4);
+    expect(el.querySelector('#dni')?.getAttribute('aria-describedby')).toBe('dni-error');
     expect(navigate).not.toHaveBeenCalled();
   });
 
@@ -39,7 +44,7 @@ describe('DataPage', () => {
     type(el, '#dni', '12345678Z');
     type(el, '#phone', '605 45 32 97');
     type(el, '#email', 'maygarcia@gmail.com');
-    el.querySelector<HTMLButtonElement>('.section2__button')!.click();
+    submit(el);
 
     expect(TestBed.inject(EnrollmentStore).get('personalData')?.dni).toBe('12345678Z');
     expect(navigate).toHaveBeenCalledWith(['/address']);

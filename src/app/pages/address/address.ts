@@ -1,16 +1,19 @@
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
-import { Router, RouterLink } from '@angular/router';
+import { Router } from '@angular/router';
 
 import { COMUNIDADES } from '../../core/enrollment.data';
 import { EnrollmentStore } from '../../core/enrollment.store';
-import { FieldError } from '../../shared/field-error/field-error';
-import { StepsSidebar } from '../../shared/steps-sidebar/steps-sidebar';
-import { postalCodeValidator } from '../../shared/validators/spanish-validators';
+import { postalCodeValidator } from '../../core/validators/spanish-validators';
+import { Control } from '../../ui/atoms/control/control';
+import { Checkbox } from '../../ui/molecules/checkbox/checkbox';
+import { FormField } from '../../ui/molecules/form-field/form-field';
+import { StepActions } from '../../ui/molecules/step-actions/step-actions';
+import { StepLayout } from '../../ui/templates/step-layout/step-layout';
 
 @Component({
   selector: 'app-address',
-  imports: [ReactiveFormsModule, RouterLink, StepsSidebar, FieldError],
+  imports: [ReactiveFormsModule, StepLayout, FormField, Control, Checkbox, StepActions],
   templateUrl: './address.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
@@ -35,11 +38,6 @@ export class AddressPage {
     if (saved) {
       this.form.setValue(saved);
     }
-  }
-
-  protected invalid(name: keyof typeof this.form.controls): boolean {
-    const control = this.form.controls[name];
-    return control.invalid && control.touched;
   }
 
   protected next(): void {

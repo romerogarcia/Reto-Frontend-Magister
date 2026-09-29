@@ -1,0 +1,26 @@
+@use 'abstracts' as *;
+
+.m-choice-group {
+  display: grid;
+  gap: $space-3;
+
+  &--inline {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  &--grid {
+    @include mq(md) {
+      grid-template-columns: repeat(2, 1fr);
+      gap: $space-5;
+    }
+  }
+
+  &--stack {
+    gap: $space-5;
+  }
+
+  &__detail {
+    font-weight: $font-weight-bold;
+  }
+}

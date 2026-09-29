@@ -1,0 +1,34 @@
+{
+  "extends": [
+    "stylelint-config-standard-scss"
+  ],
+  "rules": {
+    "selector-class-pattern": [
+      "^(a|m|o|t|l|u)-[a-z0-9]+(-[a-z0-9]+)*(__[a-z0-9]+(-[a-z0-9]+)*)?(--[a-z0-9]+(-[a-z0-9]+)*)?$",
+      {
+        "resolveNestedSelectors": true,
+        "message": "Usa BEM con prefijo de atomic design: a-, m-, o-, t-, l- o u- (p. ej. m-form-field__label--error)"
+      }
+    ],
+    "color-no-hex": [
+      true,
+      {
+        "severity": "warning"
+      }
+    ],
+    "scss/dollar-variable-pattern": "^[a-z0-9]+(-[a-z0-9]+)*$",
+    "declaration-property-value-no-unknown": null,
+    "no-descending-specificity": null,
+    "scss/dollar-variable-empty-line-before": null
+  },
+  "overrides": [
+    {
+      "files": [
+        "src/styles/abstracts/_colors.scss"
+      ],
+      "rules": {
+        "color-no-hex": null
+      }
+    }
+  ]
+}
