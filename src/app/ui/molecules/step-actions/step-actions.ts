@@ -2,6 +2,7 @@ import {
   ChangeDetectionStrategy,
   Component,
   ViewEncapsulation,
+  booleanAttribute,
   input,
   output,
 } from '@angular/core';
@@ -17,7 +18,14 @@ import { Button } from '../../atoms/button/button';
   selector: 'app-step-actions',
   imports: [Button, RouterLink],
   template: `
-    <button appButton [type]="type()" (click)="primary.emit()">{{ label() }}</button>
+    <button
+      appButton
+      [variant]="inverse() ? 'primary-inverse' : 'primary'"
+      [type]="type()"
+      (click)="primary.emit()"
+    >
+      {{ label() }}
+    </button>
     @if (backLink(); as link) {
       <a class="m-step-actions__back" [routerLink]="link">Volver atrás</a>
     }
@@ -31,6 +39,8 @@ export class StepActions {
   readonly label = input('Siguiente');
   readonly type = input<'submit' | 'button'>('submit');
   readonly backLink = input<string | null>(null);
+  /** Para usar sobre fondos oscuros. */
+  readonly inverse = input(false, { transform: booleanAttribute });
   /** Se emite al pulsar el botón principal (útil cuando type="button"). */
   readonly primary = output<void>();
 }

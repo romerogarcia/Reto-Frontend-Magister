@@ -11,7 +11,7 @@ import { HeroLayout } from '../../ui/templates/hero-layout/hero-layout';
     <app-hero-layout>
       <h1 class="t-hero__title">Página no encontrada</h1>
       <p class="t-hero__text">No encontramos la página que buscas.</p>
-      <a appButton routerLink="/">Volver al inicio</a>
+      <a appButton variant="primary-inverse" routerLink="/">Volver al inicio</a>
     </app-hero-layout>
   `,
   changeDetection: ChangeDetectionStrategy.OnPush,

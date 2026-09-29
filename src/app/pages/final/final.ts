@@ -17,7 +17,7 @@ import { HeroLayout } from '../../ui/templates/hero-layout/hero-layout';
       <p class="t-hero__text t-hero__text--wide">
         La matrícula solo será efectiva una vez se haya recibido el pago por tarjeta o transferencia
       </p>
-      <app-step-actions label="Vuelve a Home" type="button" (primary)="goHome()" />
+      <app-step-actions label="Vuelve a Home" type="button" inverse (primary)="goHome()" />
     </app-hero-layout>
   `,
   changeDetection: ChangeDetectionStrategy.OnPush,

@@ -26,16 +26,30 @@
     opacity: 0.5;
   }
 
-  // Llamada a la acción principal (Siguiente, Comenzar, Enviar...)
-  &--primary {
+  // Llamada a la acción principal (Siguiente, Enviar...)
+  &--primary,
+  &--primary-inverse {
     min-width: $button-min-width;
     font-size: $font-size-xl;
-    color: $color-text-inverse;
-    background-color: $color-action;
     box-shadow: $shadow-button;
+  }
+
+  &--primary {
+    color: $color-on-action-primary;
+    background-color: $color-action-primary;
 
     @include hover {
-      filter: brightness(0.95);
+      background-color: $color-action-primary-hover;
+    }
+  }
+
+  // Variante para fondos oscuros (portada, confirmación)
+  &--primary-inverse {
+    color: $color-action-primary;
+    background-color: $color-on-action-primary;
+
+    @include hover {
+      background-color: $color-action-soft;
     }
   }
 

@@ -12,16 +12,6 @@
     padding: $space-10 $space-12 $space-16;
   }
 
-  &__menu {
-    display: flex;
-    justify-content: flex-end;
-    font-size: $icon-size-md;
-
-    @include mq(md) {
-      font-size: $icon-size-xl;
-    }
-  }
-
   &__content {
     display: flex;
     flex: 1;

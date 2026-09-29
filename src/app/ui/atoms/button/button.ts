@@ -7,7 +7,7 @@ import {
   input,
 } from '@angular/core';
 
-export type ButtonVariant = 'primary' | 'option' | 'soft';
+export type ButtonVariant = 'primary' | 'primary-inverse' | 'option' | 'soft';
 
 /**
  * Átomo botón. Se aplica sobre un <button> o <a> nativo para conservar su

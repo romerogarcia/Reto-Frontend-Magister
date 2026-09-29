@@ -1,6 +1,5 @@
 import { ChangeDetectionStrategy, Component, ViewEncapsulation } from '@angular/core';
 
-import { Icon } from '../../atoms/icon/icon';
 import { Logo } from '../../atoms/logo/logo';
 
 /**
@@ -9,9 +8,8 @@ import { Logo } from '../../atoms/logo/logo';
  */
 @Component({
   selector: 'app-hero-layout',
-  imports: [Icon, Logo],
+  imports: [Logo],
   template: `
-    <div class="t-hero__menu"><app-icon name="bars" /></div>
     <main class="t-hero__content">
       <app-logo class="t-hero__logo" size="lg" />
       <ng-content />

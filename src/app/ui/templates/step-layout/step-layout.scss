@@ -23,18 +23,6 @@
     }
   }
 
-  // Icono de menú decorativo del diseño original (solo escritorio).
-  &__menu {
-    display: none;
-
-    @include mq(lg) {
-      display: flex;
-      justify-content: flex-end;
-      font-size: $icon-size-xl;
-      color: $color-text-subtle;
-    }
-  }
-
   &__title {
     max-width: $content-max-width;
     margin: 0 auto $space-8;

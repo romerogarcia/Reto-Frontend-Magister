@@ -15,7 +15,7 @@ import { HeroLayout } from '../../ui/templates/hero-layout/hero-layout';
       <p class="t-hero__text">
         Para comenzar a especializarte, vamos a realizar unas preguntas para darte el mejor servicio
       </p>
-      <app-step-actions label="Comenzar" type="button" (primary)="start()" />
+      <app-step-actions label="Comenzar" type="button" inverse (primary)="start()" />
     </app-hero-layout>
   `,
   changeDetection: ChangeDetectionStrategy.OnPush,

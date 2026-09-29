@@ -19,7 +19,7 @@ Zoneless · Lazy loading · SCSS (BEM + atomic design + design tokens) · Respon
   recargar la página o volver atrás no borra lo introducido.
 - **Guards de navegación:** no se puede saltar a un paso sin completar los anteriores, y la
   página final solo se ve después de enviar.
-- **Accesibilidad:** `role="radiogroup"`/`aria-checked` en los botones de opción,
+- **Accesibilidad:** botón principal con contraste 12:1 (WCAG AAA), `role="radiogroup"`/`aria-checked` en los botones de opción,
   `aria-current` en el paso activo, foco visible con teclado y envío con Enter.
 - **Lazy loading** de cada página y un título de pestaña para cada paso.
 - **Responsive:** móvil, tablet y escritorio.
@@ -126,5 +126,4 @@ Requiere Node.js 22.22.3 o superior (o Node 24).
 
 - Guardar las matrículas en Firebase/Firestore (la configuración está en el proyecto original).
 - Hacer funcionales los textos informativos ("Consulta condiciones", "Ver información legal"), por ejemplo con un modal.
-- Revisar el contraste del botón principal (texto blanco sobre `#3AB0FF`).
 - Pasar los formularios a Signal Forms cuando la API sea estable.

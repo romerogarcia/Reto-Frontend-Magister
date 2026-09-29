@@ -6,6 +6,7 @@
 
 // Paleta
 $navy-900: #23345f;
+$navy-700: #34497f;
 $navy-900-a60: rgb(35 52 95 / 61.2%); // #23345f9c del diseño original
 $steel-400: #7483b4;
 $sky-500: #3ab0ff;
@@ -30,6 +31,12 @@ $color-placeholder: $neutral-300;
 
 // Acciones
 $color-action: $sky-500;
+
+// Botón principal: azul oscuro con texto blanco (contraste 12,4:1, cumple WCAG AAA).
+// Sobre fondos oscuros se usa invertido: blanco con texto azul oscuro.
+$color-action-primary: $navy-900;
+$color-action-primary-hover: $navy-700;
+$color-on-action-primary: $neutral-0;
 $color-action-soft: $sky-200;
 $color-action-soft-strong: $steel-400;
 
