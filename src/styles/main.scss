@@ -1,11 +1,3 @@
-// =============================================================================
-// Estilos globales. Arquitectura:
-//   abstracts/  design tokens (colores, tipografía, espaciado, breakpoints) y mixins
-//   base/       reset y estilos de elementos HTML
-//   atoms/      átomos aplicados con directivas sobre elementos nativos
-//   layout/     utilidades de maquetación (l-*)
-// El resto de estilos vive junto a cada componente (src/app/ui/**).
-// =============================================================================
 @use 'base/reset';
 @use 'base/base';
 @use 'atoms/control';

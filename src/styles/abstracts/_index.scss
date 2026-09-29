@@ -1,5 +1,3 @@
-// Punto de entrada de los design tokens. En cualquier .scss:
-//   @use 'abstracts' as *;
 @forward 'colors';
 @forward 'typography';
 @forward 'spacing';

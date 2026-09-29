@@ -1,20 +1,12 @@
-// =============================================================================
-// Tamaños de pantalla (mobile-first)
-// =============================================================================
 @use 'sass:map';
 
 $breakpoints: (
   sm: 36rem,
-  // 576px  · móvil grande
   md: 48rem,
-  // 768px  · tablet
   lg: 64rem,
-  // 1024px · escritorio
-  xl: 80rem, // 1280px · escritorio grande
+  xl: 80rem,
 );
 
-/// Aplica estilos a partir de un tamaño de pantalla.
-/// @example scss  @include mq(md) { ... }
 @mixin mq($name) {
   @if not map.has-key($breakpoints, $name) {
     @error 'Breakpoint desconocido: #{$name}. Usa: #{map.keys($breakpoints)}';
@@ -25,7 +17,6 @@ $breakpoints: (
   }
 }
 
-/// Aplica estilos por debajo de un tamaño de pantalla.
 @mixin mq-down($name) {
   @media (width < map.get($breakpoints, $name)) {
     @content;

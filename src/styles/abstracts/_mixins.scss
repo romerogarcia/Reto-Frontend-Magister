@@ -1,6 +1,7 @@
 @use 'colors' as *;
+@use 'typography' as *;
+@use 'breakpoints' as *;
 
-/// Anillo de foco visible solo con teclado.
 @mixin focus-ring {
   &:focus-visible {
     outline: 3px solid $color-focus;
@@ -8,7 +9,6 @@
   }
 }
 
-/// Oculta visualmente pero mantiene accesible para lectores de pantalla.
 @mixin visually-hidden {
   position: absolute;
   width: 1px;
@@ -21,11 +21,26 @@
   border: 0;
 }
 
-/// Estilos :hover solo en dispositivos con puntero (evita que se "queden" al tocar en móvil).
 @mixin hover {
   @media (hover: hover) {
     &:hover {
       @content;
     }
   }
+}
+
+@mixin field-label($weight: $font-weight-bold) {
+  font-size: $font-size-lg;
+  font-weight: $weight;
+  color: $color-text-muted;
+
+  @include mq(lg) {
+    font-size: $font-size-xl;
+  }
+}
+
+@mixin field-error {
+  font-size: $font-size-xs;
+  font-weight: $font-weight-bold;
+  color: $color-error;
 }

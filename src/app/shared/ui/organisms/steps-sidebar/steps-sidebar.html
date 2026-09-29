@@ -1,0 +1,47 @@
+<app-logo class="o-steps-sidebar__brand" />
+
+<div class="o-steps-sidebar__progress">
+  <p class="o-steps-sidebar__progress-text">
+    Paso {{ current() + 1 }} de {{ steps().length }} · {{ currentStep().label }}
+  </p>
+  <div
+    class="o-steps-sidebar__progress-bar"
+    role="progressbar"
+    [attr.aria-label]="'Progreso: ' + label()"
+    aria-valuemin="0"
+    aria-valuemax="100"
+    [attr.aria-valuenow]="progress()"
+  >
+    <span class="o-steps-sidebar__progress-fill" [style.width.%]="progress()"></span>
+  </div>
+</div>
+
+<nav class="o-steps-sidebar__nav" [attr.aria-label]="label()">
+  <ol class="o-steps-sidebar__list">
+    @for (item of steps(); track item.link; let i = $index) {
+      <li
+        class="o-steps-sidebar__item"
+        [class.o-steps-sidebar__item--active]="i === current()"
+        [class.o-steps-sidebar__item--done]="i < current()"
+        [attr.aria-current]="i === current() ? 'step' : null"
+      >
+        <app-icon
+          class="o-steps-sidebar__marker"
+          name="circle"
+          size="lg"
+          [variant]="i === current() ? 'regular' : 'solid'"
+        />
+        @if (i < current()) {
+          <!-- Los pasos ya completados permiten volver a ellos -->
+          <a class="o-steps-sidebar__link" [routerLink]="item.link">{{ item.label }}</a>
+        } @else {
+          <span>{{ item.label }}</span>
+        }
+      </li>
+    }
+  </ol>
+</nav>
+
+@if (image(); as src) {
+  <img class="o-steps-sidebar__illustration" [src]="src" alt="" />
+}

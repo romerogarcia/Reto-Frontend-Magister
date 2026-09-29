@@ -1,0 +1,30 @@
+@use 'abstracts' as *;
+
+.m-fieldset {
+  min-width: 0;
+  border: 0;
+
+  &__legend {
+    padding: 0;
+
+    @include field-label;
+  }
+
+  &__hint {
+    @include field-label($font-weight-regular);
+  }
+
+  &__info {
+    margin-top: $space-1;
+  }
+
+  &__content {
+    margin-top: $space-5;
+  }
+
+  &__error {
+    margin-top: $space-3;
+
+    @include field-error;
+  }
+}

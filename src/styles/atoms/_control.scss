@@ -1,8 +1,3 @@
-// -----------------------------------------------------------------------------
-// Átomo: control de formulario (input de texto y select)
-// Se aplica con la directiva [appControl] sobre elementos nativos, por eso
-// su estilo es global en lugar de estar en un componente.
-// -----------------------------------------------------------------------------
 @use 'abstracts' as *;
 
 .a-control {
@@ -27,7 +22,6 @@
     cursor: pointer;
   }
 
-  // Select sin opción elegida: se ve como un placeholder.
   &--empty {
     color: $color-placeholder;
   }
@@ -37,7 +31,6 @@
   }
 }
 
-// Checkbox nativo con el tamaño y color de marca.
 .a-checkbox {
   flex-shrink: 0;
   width: $checkbox-size;

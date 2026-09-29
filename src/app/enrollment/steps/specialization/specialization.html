@@ -1,0 +1,49 @@
+<app-step-page step="specialization" [formGroup]="form">
+  <div class="l-grid l-grid--2">
+    <app-form-field
+      label="Rama"
+      hint="(Selecciona una opción)"
+      for="rama"
+      [control]="form.controls.rama"
+    >
+      <select appControl id="rama" formControlName="rama">
+        <option value="" disabled>Ej: Maestros - Audición y lenguajes</option>
+        @for (rama of ramas; track rama) {
+          <option [value]="rama">{{ rama }}</option>
+        }
+      </select>
+    </app-form-field>
+
+    <app-form-field
+      label="Provincia"
+      hint="(Selecciona una opción)"
+      for="provincia"
+      [control]="form.controls.provincia"
+    >
+      <select appControl id="provincia" formControlName="provincia">
+        <option value="" disabled>Ej: Madrid</option>
+        @for (provincia of provincias; track provincia) {
+          <option [value]="provincia">{{ provincia }}</option>
+        }
+      </select>
+    </app-form-field>
+  </div>
+
+  <fieldset
+    appFieldset
+    legend="¿Has sido alumn&#64; de Magister?"
+    info="Consulta condiciones"
+    [control]="form.controls.exAlumno"
+  >
+    <app-choice-group formControlName="exAlumno" [options]="exAlumnoOptions" />
+  </fieldset>
+
+  <fieldset
+    appFieldset
+    legend="Entrega de material"
+    info="Consulta condiciones"
+    [control]="form.controls.material"
+  >
+    <app-choice-group formControlName="material" variant="soft" [options]="materialOptions" />
+  </fieldset>
+</app-step-page>

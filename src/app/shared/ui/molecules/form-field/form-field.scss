@@ -1,0 +1,21 @@
+@use 'abstracts' as *;
+
+.m-form-field {
+  display: flex;
+  flex-direction: column;
+  gap: $space-3;
+  min-width: 0;
+
+  &__label {
+    @include field-label;
+  }
+
+  &__hint {
+    display: block;
+    font-weight: $font-weight-regular;
+  }
+
+  &__error {
+    @include field-error;
+  }
+}

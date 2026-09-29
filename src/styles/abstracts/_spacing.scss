@@ -1,45 +1,41 @@
 @use 'colors' as *;
 
-// =============================================================================
-// Espaciado, radios, sombras y tamaños
-// =============================================================================
-
-$space-1: 0.25rem; // 4
-$space-2: 0.5rem; // 8
-$space-3: 0.75rem; // 12
-$space-4: 1rem; // 16
-$space-5: 1.25rem; // 20
-$space-6: 1.5rem; // 24
-$space-8: 2rem; // 32
-$space-10: 2.5rem; // 40
-$space-12: 3rem; // 48
-$space-16: 4rem; // 64
-$space-20: 5rem; // 80
-$space-24: 6rem; // 96
+$space-1: 0.25rem;
+$space-2: 0.5rem;
+$space-3: 0.75rem;
+$space-4: 1rem;
+$space-5: 1.25rem;
+$space-6: 1.5rem;
+$space-8: 2rem;
+$space-10: 2.5rem;
+$space-12: 3rem;
+$space-16: 4rem;
+$space-20: 5rem;
+$space-24: 6rem;
 
 $radius-md: 1em;
 
 $shadow-button: 3px 3px $black-a15;
 
-$control-height: 3.125rem; // 50
-$button-height: 2.75rem; // 44 (mínimo táctil recomendado)
-$button-min-width: 12.5rem; // 200
+$control-height: 3.125rem;
+$button-height: 2.75rem;
+$button-min-width: 12.5rem;
 $checkbox-size: 1.5rem;
 
-$content-max-width: 56.25rem; // 900
+$content-max-width: 56.25rem;
 $sidebar-width: 30%;
 $sidebar-min-width: 20rem;
 
 $border-width: 1px;
 $border-width-strong: 2px;
-$option-min-width: 8.125rem; // 130
+$option-min-width: 8.125rem;
 $progress-height: 0.375rem;
 $page-gutter-desktop: 5vw;
 
 // Iconos
 $icon-size-sm: 2rem;
 $icon-size-lg: 3rem;
-$icon-size-xl: 4rem; // fa-4x del diseño original
+$icon-size-xl: 4rem;
 
 // Medidas de contenido
 $illustration-max-width: 25rem;

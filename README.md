@@ -26,42 +26,67 @@ Zoneless · Lazy loading · SCSS (BEM + atomic design + design tokens) · Respon
 
 ## Arquitectura
 
+Organizada por funcionalidad, siguiendo la [guía de estilo de Angular](https://angular.dev/style-guide):
+
 ```
 src/app/
-├── core/                      Lógica de negocio (sin UI)
-│   ├── enrollment.model.ts    Tipos de los datos de cada paso
-│   ├── enrollment.data.ts     Opciones (ramas, tarifas...) y configuración de los pasos
-│   ├── enrollment.store.ts    Estado global con signals + persistencia
-│   ├── step.guard.ts          Guards funcionales (CanActivateFn)
-│   ├── forms/                 Mensajes de error reutilizables
-│   └── validators/            Validadores personalizados (DNI/NIE, móvil, CP)
-├── ui/                        Componentes de interfaz (atomic design)
-│   ├── atoms/                 button, icon, logo, info-link, control
-│   ├── molecules/             form-field, fieldset, choice-group, checkbox, step-actions
-│   ├── organisms/             steps-sidebar
-│   └── templates/             step-layout, hero-layout
-├── pages/                     Una página por paso (standalone, OnPush, lazy)
-├── app.routes.ts
-└── app.config.ts
+├── core/                        Lo global de la app (URL serializer)
+├── shared/                      Reutilizable, sin lógica de negocio
+│   ├── forms/                   Mensajes de error de formularios
+│   └── ui/                      Sistema de diseño (atomic design)
+│       ├── atoms/               button, icon, logo, info-link, control
+│       ├── molecules/           form-field, fieldset, choice-group, checkbox, step-actions
+│       ├── organisms/           steps-sidebar
+│       └── templates/           sidebar-layout, hero-layout
+├── enrollment/                  Funcionalidad "matrícula"
+│   ├── enrollment.model.ts      Tipos de los datos de cada paso
+│   ├── enrollment.data.ts       Pasos (STEPS) y opciones de los formularios
+│   ├── enrollment.store.ts      Estado con signals + persistencia
+│   ├── enrollment.guards.ts     Guards funcionales
+│   ├── enrollment.routes.ts     Rutas (lazy), generadas a partir de STEPS
+│   ├── step-page/               Lógica común de todos los pasos
+│   ├── steps/                   Un componente por paso: solo su formulario y sus campos
+│   ├── confirmation/
+│   └── validators/              DNI/NIE, móvil, código postal
+├── home/                        Portada
+└── not-found/
 src/styles/
-├── abstracts/                 Design tokens: colores, tipografía, espaciado, breakpoints, mixins
-├── base/                      Reset y estilos de elementos HTML
-├── atoms/                     Átomos aplicados con directiva sobre elementos nativos
-└── layout/                    Utilidades de maquetación (l-grid, l-stack)
+├── abstracts/                   Design tokens: colores, tipografía, espaciado, breakpoints, mixins
+├── base/                        Reset y estilos de elementos HTML
+├── atoms/                       Átomos aplicados con directiva sobre elementos nativos
+└── layout/                      Utilidades de maquetación (l-grid, l-stack)
 ```
+
+**Cada paso solo declara su formulario.** `StepPage` se encarga del resto: recupera los datos
+guardados, valida, guarda en el store y navega. Título, ilustración, "Volver atrás", texto del
+botón y progreso se calculan a partir de `STEPS`. Un paso completo es esto:
+
+```html
+<app-step-page step="rate" [formGroup]="form">
+  <fieldset appFieldset legend="Tarifas" [control]="form.controls.tarifaId">
+    <app-choice-group formControlName="tarifaId" layout="stack" [options]="options" />
+  </fieldset>
+</app-step-page>
+```
+
+Para añadir un paso nuevo: una entrada en `STEPS`, su tipo en el modelo, su componente en
+`steps/` y una línea en `enrollment.routes.ts`.
+
+**`shared/ui` no conoce la matrícula.** Sus componentes reciben los datos por `input()`, así se
+pueden reutilizar en otro proyecto.
 
 ## Sistema de diseño
 
 ### Atomic design + BEM
 
-Cada componente de `ui/` define un bloque BEM con prefijo según su nivel:
+Cada componente de `shared/ui/` define un bloque BEM con prefijo según su nivel:
 
 | Prefijo | Nivel     | Ejemplos                                                  |
 | ------- | --------- | --------------------------------------------------------- |
 | `a-`    | Átomo     | `a-button--primary`, `a-control--invalid`, `a-logo__text` |
 | `m-`    | Molécula  | `m-form-field__label`, `m-choice-group--grid`             |
 | `o-`    | Organismo | `o-steps-sidebar__item--active`                           |
-| `t-`    | Plantilla | `t-step-layout__title`, `t-hero__text--wide`              |
+| `t-`    | Plantilla | `t-sidebar-layout__title`, `t-hero__text--wide`           |
 | `l-`    | Layout    | `l-grid--3`, `l-stack`                                    |
 | `u-`    | Utilidad  | `u-visually-hidden`                                       |
 
