@@ -1,0 +1,127 @@
+<main>
+  <section appStepsSidebar [current]="4"></section>
+
+  <section class="section2">
+    <nav class="section2__menu" aria-label="Menú">
+      <i class="fa-solid fa-bars fa-4x" aria-hidden="true"></i>
+    </nav>
+    <h2 class="section2__title">Tu dirección</h2>
+    <form [formGroup]="form" (ngSubmit)="next()">
+      <label class="section2__label" for="comunidad">
+        <strong>Comunidad de Exámen</strong>
+        <app-field-error
+          [control]="form.controls.comunidad"
+          [messages]="{ required: 'Selecciona una opción' }"
+        />
+        <p class="section2__label__text">(Selecciona una opción)</p>
+        <select
+          id="comunidad"
+          class="section2__label__option"
+          formControlName="comunidad"
+          [class.is-invalid]="invalid('comunidad')"
+        >
+          <option value="" disabled>Ej: Madrid</option>
+          @for (comunidad of comunidades; track comunidad) {
+            <option [value]="comunidad">{{ comunidad }}</option>
+          }
+        </select>
+      </label>
+
+      <label class="section2__label" for="address">
+        <strong>Dirección</strong>
+        <app-field-error [control]="form.controls.direccion" />
+        <input
+          id="address"
+          class="section2__label__option"
+          type="text"
+          autocomplete="street-address"
+          formControlName="direccion"
+          placeholder="Ej: Calle Ramiro de Maxtu, 10, 4D"
+          [class.is-invalid]="invalid('direccion')"
+        />
+      </label>
+
+      <div class="section2__inputs">
+        <label class="section2__inputs__label" for="locality">
+          Localidad
+          <app-field-error [control]="form.controls.localidad" />
+          <input
+            id="locality"
+            class="section2__inputs__label__box"
+            type="text"
+            autocomplete="address-level2"
+            formControlName="localidad"
+            placeholder="Ej: Madrid"
+            [class.is-invalid]="invalid('localidad')"
+          />
+        </label>
+
+        <label class="section2__inputs__label" for="province">
+          Provincia
+          <app-field-error [control]="form.controls.provincia" />
+          <input
+            id="province"
+            class="section2__inputs__label__box"
+            type="text"
+            autocomplete="address-level1"
+            formControlName="provincia"
+            placeholder="Ej: Madrid"
+            [class.is-invalid]="invalid('provincia')"
+          />
+        </label>
+
+        <label class="section2__inputs__label" for="cp">
+          Código Postal
+          <app-field-error [control]="form.controls.cp" />
+          <input
+            id="cp"
+            class="section2__inputs__label__box"
+            type="text"
+            inputmode="numeric"
+            autocomplete="postal-code"
+            formControlName="cp"
+            placeholder="Ej: 28405"
+            [class.is-invalid]="invalid('cp')"
+          />
+        </label>
+      </div>
+
+      <div class="section2__checkbox">
+        <label class="section2__checkbox__label" for="cbox1">
+          <input
+            type="checkbox"
+            id="cbox1"
+            class="section2__checkbox__label__input"
+            formControlName="aceptaLegal"
+          />
+          Acepto la <span> información legal</span>
+          <app-field-error
+            [control]="form.controls.aceptaLegal"
+            [messages]="{ required: 'Debes aceptarla' }"
+          />
+        </label>
+        <input
+          type="checkbox"
+          id="cbox2"
+          class="section2__checkbox__input2"
+          formControlName="aceptaPrivacidad"
+        />
+        <label for="cbox2" class="section2__checkbox__label">
+          Acepto la<span>protección de datos</span>
+          <app-field-error
+            [control]="form.controls.aceptaPrivacidad"
+            [messages]="{ required: 'Debes aceptarla' }"
+          />
+        </label>
+      </div>
+      <button type="submit" hidden></button>
+    </form>
+
+    <button type="button" class="section2__button" (click)="next()">
+      <span class="section__button__link">Siguiente</span>
+    </button>
+    <p class="section__back">
+      <a class="section__back" routerLink="/data">Volver atrás</a>
+    </p>
+  </section>
+</main>

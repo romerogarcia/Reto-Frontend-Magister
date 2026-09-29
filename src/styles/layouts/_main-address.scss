@@ -1,0 +1,138 @@
+@use '../core/variables' as *;
+
+.section1-address{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: $background-color;
+    color: $color-text;
+    height: auto;
+    width: 30vw;
+    float: left;
+   padding-top: 30px;
+    
+    &__elements{
+        display: flex; 
+        align-items: center;
+        margin-top: 50px;
+        margin-bottom: 50px;
+        &__title{
+            color: $color-text;
+            padding-top: 20px;
+            padding-left: 25px;
+            font-size: 30px;
+        }
+    }
+
+    &__container-task{
+      
+        &__newcolor{
+                display: flex; 
+                align-items: center;
+                margin-bottom: 30px;  
+                
+        }
+
+        &__list{
+        display: flex; 
+        align-items: center;
+        margin-bottom: 50px;
+        color: $color-task;
+        &__i{
+            padding-right: 10px;
+        }
+    }
+    }
+    &__image{
+        margin-top: 80px;
+        width: 460px;
+        height: 400px;
+    }
+}
+
+.section2{
+
+    &__label{
+        color: $color-light;
+        font-size: 20px;
+        
+        &__text{
+            color: $color-light; 
+        }
+        &__option{
+        width: 850px;
+        height: 50px;
+        font-size: 16px;
+        border-radius: 1em;
+        opacity: 0.4;
+        color: rgba(0, 0, 0, 0.37);
+        padding-left: 10px;
+        margin-top: 20px;
+        margin-bottom: 70px;
+        }
+    }
+
+
+&__checkbox{
+    margin-top: 50px;
+    display: flex;
+    align-items: center;
+    
+    &__label{
+        font-size: 20px;
+        color:$color-light;
+        font-weight: bold;
+        display: flex;
+       align-items: center;
+        justify-content: center;
+        
+        
+        &__input{
+            border-radius:30px;
+            width: 30px;
+            height: 30px;
+            margin-right: 20px;
+            cursor: pointer;
+            
+        }
+    }
+
+    &__input2{
+        border-radius: 30px;
+        width: 30px;
+        height: 30px;
+        margin-left: 50px;
+        margin-right: 20px;
+        cursor: pointer;
+    }
+}
+
+    &__button{
+        background-color: $color-button;
+        width: 200px;
+        height: 40px;
+        border-style: none;
+        border-radius: 1em;
+        margin-bottom: 20px;
+        box-shadow: 3px 3px rgba(0, 0, 0, 0.151);
+        color: $color-text;
+        font-size: 16px;
+        margin-left: 310px;
+        &__link{
+            text-decoration: none;
+            color: $color-text;
+            font-size: 20px;
+            background-color:  $color-button;
+        }
+        
+    }
+    &__back{
+        color: $color-button;
+        font-size: 18px;
+        font-weight: bold;
+        cursor: pointer;
+    }
+}
+
+span { color: $color-button; padding-left: 4px;}

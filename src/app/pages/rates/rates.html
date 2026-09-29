@@ -1,0 +1,38 @@
+<main>
+  <section appStepsSidebar [current]="2"></section>
+
+  <section class="section2">
+    <nav class="section2__menu" aria-label="Menú">
+      <i class="fa-solid fa-bars fa-4x" aria-hidden="true"></i>
+    </nav>
+    <h2 class="section2__title">Selecciona tú Tarifa</h2>
+
+    <h3 class="section2__subtitle">
+      Tarifas
+      <app-field-error [control]="tarifaId" [messages]="{ required: 'Selecciona una tarifa' }" />
+    </h3>
+    <p class="section2__text">(Selecciona una opción)</p>
+
+    <div class="section2__container-rates-list" role="radiogroup" aria-label="Tarifas">
+      @for (tarifa of tarifas; track tarifa.id) {
+        <button
+          type="button"
+          role="radio"
+          [class]="tarifa.cssClass"
+          [class.is-selected]="tarifaId.value === tarifa.id"
+          [attr.aria-checked]="tarifaId.value === tarifa.id"
+          (click)="choose(tarifa.id)"
+        >
+          {{ tarifa.descripcion }} <strong>Matrícula {{ tarifa.precio.toFixed(2) }} euros</strong>
+        </button>
+      }
+    </div>
+
+    <button type="button" class="section2__button" (click)="next()">
+      <span class="section__button__link">Siguiente</span>
+    </button>
+    <p class="section__back">
+      <a class="section__back" routerLink="/modality">Volver atrás</a>
+    </p>
+  </section>
+</main>

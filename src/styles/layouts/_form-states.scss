@@ -1,0 +1,61 @@
+@use '../core/variables' as *;
+
+// Estado "seleccionado" de los botones de opción.
+// Reutiliza el mismo estilo que ya tenían en :hover para no alterar el diseño.
+.is-selected {
+  background-color: $color-button2;
+  border-color: $color-button2;
+  color: $color-text;
+}
+
+.section2__container-material__button.is-selected {
+  background-color: $color-task;
+}
+
+// Campos rellenos: en el diseño original el texto escrito heredaba el estilo del
+// placeholder (gris claro con opacity 0.4) y apenas se leía. Vacíos se ven igual.
+input.section2__input,
+input.section2__inputs__label__box,
+input.section2__label__option {
+  &:not(:placeholder-shown) {
+    color: $background-color;
+    opacity: 1;
+  }
+}
+
+select.section2__label__option.ng-valid,
+select.section2__container-selects__label__choices.ng-valid {
+  color: $background-color;
+  opacity: 1;
+}
+
+// Campos con error de validación (solo visibles tras intentar avanzar).
+.is-invalid {
+  border: 2px solid $color-error !important;
+  opacity: 1 !important;
+}
+
+.form-error {
+  color: $color-error;
+  font-size: 14px;
+  font-weight: bold;
+  margin-left: 12px;
+}
+
+// Accesibilidad: foco visible con teclado.
+button:focus-visible,
+select:focus-visible,
+input:focus-visible {
+  outline: 3px solid $color-button;
+  outline-offset: 2px;
+}
+
+// Los botones principales ya no anidan un <a> dentro de <button> (HTML no válido):
+// el texto va en un <span> que replica el `display: flex` que tenía el enlace.
+span.section__button__link,
+span.button-send__link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-left: 0; // anula la regla global `span` de _main-address
+}

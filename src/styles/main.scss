@@ -1,0 +1,16 @@
+// Estilos globales de la web (migrados desde el proyecto React).
+// Se cargan globalmente y en el mismo orden que el original, porque las hojas
+// de cada página se sobrescriben entre sí en cascada.
+@use 'core/reset';
+@use 'layouts/main-landing';
+@use 'layouts/main-specialized';
+@use 'layouts/main-modality';
+@use 'layouts/main-rates';
+@use 'layouts/main-data';
+@use 'layouts/main-address';
+@use 'layouts/main-payment';
+@use 'layouts/main-final';
+// En CRA, Notfound.scss acababa en el CSS global después de main.scss.
+@use 'layouts/notfound';
+// Nuevo: estados de selección y validación de los formularios.
+@use 'layouts/form-states';
