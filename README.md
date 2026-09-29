@@ -4,6 +4,8 @@ Formulario de matrícula por pasos para una academia de oposiciones, desarrollad
 Es la migración de un reto frontend que hice originalmente en React. El diseño es el mismo, píxel a píxel,
 pero ahora el formulario funciona de principio a fin.
 
+**Demo:** https://romerogarcia.github.io/Reto-Frontend-Magister/
+
 **Stack:** Angular 22 · TypeScript (strict) · Signals · Componentes standalone · Reactive Forms ·
 Zoneless · Lazy loading · SCSS (BEM) · Vitest
 
@@ -48,7 +50,11 @@ npm install
 npm start        # http://localhost:4200
 npm test         # tests unitarios con Vitest
 npm run build    # build de producción en dist/
+npm run build:pages  # build para GitHub Pages en docs/
 ```
+
+La demo se publica con GitHub Pages desde la carpeta `docs/` de la rama `main`.
+Para actualizarla: `npm run build:pages` y haz commit de `docs/`.
 
 Requiere Node.js 22.22.3 o superior (o Node 24).
 
